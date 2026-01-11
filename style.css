@@ -12,7 +12,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'roboto',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+  font-family:'Roboto',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
   background:
     radial-gradient(900px 400px at 10% -10%, rgba(255,213,74,.03), transparent 40%),
     radial-gradient(800px 600px at 110% 10%, rgba(255,213,74,.02), transparent 40%),
@@ -130,7 +130,27 @@ section {
   25%, 75% { opacity: 0; }
 }
 
-.hero-sub{color:#eaeaea;max-width:66ch}
+.hero-sub {
+  color: var(--text);
+  max-width: 66ch;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero-sub em {
+  display: block;
+  font-style: italic;
+  color: var(--gold-2);
+  opacity: 0.95;
+  margin-bottom: 0.2px;
+}
+
+.hero-sub .hero-note {
+  color: var(--text);
+  display: block;
+  margin-top: 10px;
+  font-size: 1rem;
+}
 .hero-cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border-radius:12px;font-weight:700;border:1px solid transparent;cursor:pointer;text-decoration:none}
 .btn.primary{background:var(--gold);color:#000;box-shadow:var(--glow)}
@@ -196,10 +216,20 @@ section {
   justify-content: flex-start;
 }
 
+/* Ngắt đoạn nhẹ cho text dài */
 .lead {
-  font-size:1.05rem;
-  color:#fff;
-  margin-bottom:14px;
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.lead .para-break {
+  display: block;
+  height: 10px; /* chỉnh 8–14px tùy cảm giác */
+}
+
+.about-content .lead {
+  max-width: 60ch; /* đọc rất dễ, chuẩn typography */
 }
 
 .sub-title {
@@ -676,6 +706,11 @@ section {
   margin-top: 40px; 
 }
 
+/* Highlight strong text inside Projects */
+.project-list strong {
+  color: #ffea4d;
+  font-weight: 500; /* đậm vừa, không quá gắt */
+}
 
 /* ---------- ACTIVITIES ---------- */
 .activity-card {
