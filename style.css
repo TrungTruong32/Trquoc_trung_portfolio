@@ -495,10 +495,12 @@ section {
   white-space: nowrap;
 }
 
+
+
 /* View buttons */
 .view-paper {
-  margin-top: auto;        /* đẩy xuống đáy card */
-  padding-top: 18px;
+  margin-top: 85px;     /* khoảng cách tự nhiên với text */
+  padding-top: 10px;
   text-align: center;
 }
 
