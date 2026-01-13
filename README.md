@@ -6,11 +6,11 @@ This portfolio demonstrates my projects in Data Analysis (DA), Natural Language 
 
 ## Live Portfolio
 Check out the portfolio live on GitHub Pages:  
-[View Website](https://nmhung15.github.io/portfolio-DA/)
+[View Website](https://nmhung15.github.io/nmhung-portfolio/)
 
 ## Skills & Tools
 
-**Programming:** Python, R, Java, C/C++  
+**Programming:** Python, R 
 **Data Analysis & Visualization:** Excel, Power BI, Matplotlib, Seaborn  
 **Databases:** MySQL, PostgreSQL, SQL Server, MongoDB  
 **Libraries:** Pandas, NumPy, Scikit-learn, PyTorch  
@@ -28,7 +28,7 @@ For detailed reports, see each project folder or click **View More** on the webs
 
 
 ## Contact
-- Phone: 0762.116.689
+- Phone: (+84) 762.116.689
 - Email: ngmhung.work@gmail.com
 - LinkedIn: [linkedin.com/in/ngminh-hung](https://linkedin.com/in/ngminh-hung)  
 - GitHub: [github.com/nmhung15](https://github.com/nmhung15)
