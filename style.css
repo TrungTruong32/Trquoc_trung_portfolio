@@ -106,6 +106,35 @@ section {
 .hero{position:relative;padding:110px 0 60px;overflow:hidden}
 .hero-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.34}
 .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center}
+
+/* Open to Work Badge */
+.open-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgb(16, 185, 129);
+  color: rgb(16, 185, 129);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background: rgb(16, 185, 129);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
 .avatar-wrap{width:min(420px,88%);aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:3px solid var(--gold);box-shadow:0 20px 60px rgba(255,213,74,.08)}
 .avatar-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 
@@ -169,69 +198,182 @@ section {
 .section-title{text-align:center;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:28px}
 .section-title span{color:var(--gold);text-shadow:0 0 14px rgba(255,213,74,.18)}
 
-/* ---------- ABOUT ---------- */
-.about-grid {
+/* ---------- TECHNICAL SKILLSET ---------- */
+.skillset-subtitle {
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+  margin: -10px 0 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skillset-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* chia đều trái phải */
-  gap: 32px;
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.about-avatar {
+.skill-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 213, 74, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--card-accent);
+}
+
+.skill-card:hover::before {
+  opacity: 1;
+}
+
+/* Card color variants */
+.skill-card-blue {
+  --card-accent: #4f9fff;
+  box-shadow: 
+    0 8px 32px rgba(79, 159, 255, 0.15),
+    0 0 60px rgba(79, 159, 255, 0.08),
+    inset 0 0 0 1px rgba(79, 159, 255, 0.1);
+}
+
+.skill-card-blue:hover {
+  box-shadow: 
+    0 20px 60px rgba(79, 159, 255, 0.25),
+    0 0 80px rgba(79, 159, 255, 0.15),
+    inset 0 0 0 1px rgba(79, 159, 255, 0.2);
+}
+
+.skill-card-green {
+  --card-accent: #10b981;
+  box-shadow: 
+    0 8px 32px rgba(16, 185, 129, 0.15),
+    0 0 60px rgba(16, 185, 129, 0.08),
+    inset 0 0 0 1px rgba(16, 185, 129, 0.1);
+}
+
+.skill-card-green:hover {
+  box-shadow: 
+    0 20px 60px rgba(16, 185, 129, 0.25),
+    0 0 80px rgba(16, 185, 129, 0.15),
+    inset 0 0 0 1px rgba(16, 185, 129, 0.2);
+}
+
+.skill-card-orange {
+  --card-accent: #ff8c42;
+  box-shadow: 
+    0 8px 32px rgba(255, 140, 66, 0.15),
+    0 0 60px rgba(255, 140, 66, 0.08),
+    inset 0 0 0 1px rgba(255, 140, 66, 0.1);
+}
+
+.skill-card-orange:hover {
+  box-shadow: 
+    0 20px 60px rgba(255, 140, 66, 0.25),
+    0 0 80px rgba(255, 140, 66, 0.15),
+    inset 0 0 0 1px rgba(255, 140, 66, 0.2);
+}
+
+.skill-card-purple {
+  --card-accent: #a855f7;
+  box-shadow: 
+    0 8px 32px rgba(168, 85, 247, 0.15),
+    0 0 60px rgba(168, 85, 247, 0.08),
+    inset 0 0 0 1px rgba(168, 85, 247, 0.1);
+}
+
+.skill-card-purple:hover {
+  box-shadow: 
+    0 20px 60px rgba(168, 85, 247, 0.25),
+    0 0 80px rgba(168, 85, 247, 0.15),
+    inset 0 0 0 1px rgba(168, 85, 247, 0.2);
+}
+
+.skill-card-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 213, 74, 0.08);
+  border-radius: 12px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.about-avatar img {
-  width: 100%;
-  max-width: 280px; /* giới hạn chiều ngang */
-  height: 400px; /* chiều dọc cố định, ảnh dọc hơn */
-  object-fit: cover; /* giữ tỉ lệ, crop vừa đủ */
-  border-radius: 18px;
-  border: 3px solid var(--gold);
-  box-shadow: 0 20px 60px rgba(255,213,74,.08);
-  display: block;
-  margin-bottom: 16px;
-}
-
-/* Text dưới avatar */
-.avatar-info {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
-.avatar-info p {
-  margin: 2px 0;
-  color: #fff; /* trắng */
-  font-weight: 500;
-  font-size: 0.95rem;
+.skill-card:hover .skill-card-icon {
+  background: var(--card-accent);
+  transform: scale(1.05);
 }
 
-/* Nội dung About bên phải */
-.about-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+.skill-card-icon i {
+  font-size: 24px;
+  color: var(--gold);
+  transition: color 0.3s ease;
 }
 
-/* Ngắt đoạn nhẹ cho text dài */
-.lead {
-  font-size: 1rem;
+.skill-card:hover .skill-card-icon i {
   color: #fff;
+}
+
+.skill-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.skill-section {
+  margin-bottom: 20px;
+}
+
+.skill-section:last-child {
+  margin-bottom: 0;
+}
+
+.skill-section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--card-accent);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-section-title {
+  color: var(--gold);
+}
+
+.skill-section-content {
+  font-size: 0.95rem;
+  color: #ccc;
   line-height: 1.6;
 }
 
-.lead .para-break {
-  display: block;
-  height: 10px; /* chỉnh 8–14px tùy cảm giác */
+.skill-section-content strong {
+  color: #fff;
 }
 
-.about-content .lead {
-  max-width: 60ch; /* đọc rất dễ, chuẩn typography */
-}
-
+/* Legacy styles for compatibility */
 .sub-title {
   color:var(--gold);
   margin-top:10px;
@@ -908,11 +1050,19 @@ section {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr; text-align:center}
-  .about-grid{grid-template-columns:1fr; text-align:left}
+  .skillset-grid{grid-template-columns:repeat(2, 1fr)}
   .resume-pair{grid-template-columns:1fr}
   .work-card{grid-template-columns:1fr;align-items:center}
   .work-thumb img{width:100%;height:220px}
   .contact-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:640px){
+  .skillset-grid{grid-template-columns:1fr; max-width:500px; margin-left:auto; margin-right:auto}
+}
+
+@media (min-width:1200px){
+  .skillset-grid{max-width:1200px; margin-left:auto; margin-right:auto}
 }
 
 /* ---------- BACK TO TOP BUTTON ---------- */

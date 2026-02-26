@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Nguyễn Minh Hùng's Portfolio">
-  <title>Hung Nguyen — Portfolio</title>
+  <meta name="description" content="Trung Truong's Portfolio">
+  <title>Trung Truong — Portfolio</title>
 
   <!-- Fonts & Icons -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4f53b5a3a1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -16,25 +17,26 @@
   <!-- Styles -->
   <link rel="stylesheet" href="style.css?v=1.0.1" />
 </head>
+
 <body>
-<header class="navbar">
-  <div class="container nav-inner">
-    <div class="brand">Hung<span>Nguyen</span></div>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand">Trung<span>Truong</span></div>
 
-    <!-- nút toggle menu cho mobile -->
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <!-- nút toggle menu cho mobile -->
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#resume">Resume</a>
-      <a href="#work">Work Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#activities">Activities</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#skillset">Skillset</a>
+        <a href="#resume">Resume</a>
+        <a href="#work">Work Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <!-- HERO -->
   <section id="home" class="hero">
@@ -42,33 +44,31 @@
     <div class="container hero-grid">
       <div class="hero-left fade-up">
         <div class="avatar-wrap">
-          <img src="./images/avt-header.jpg" alt="Hung Nguyen avatar" loading="lazy"/>
+          <img src="./images/avatar.jpg" alt="Trung Truong's avatar" loading="lazy" />
         </div>
       </div>
 
       <div class="hero-right fade-up">
-        <p class="eyebrow">Hello — I'm</p>
-        <h1 class="hero-title">Nguyen Minh Hung</h1>
+        <div class="open-badge">
+          <span class="badge-dot"></span>
+          OPEN TO WORK
+        </div>
+
+        <h1 class="hero-title">Truong Quoc Trung</h1>
+
         <h2 class="hero-typing">
           <span>I am a</span> <span id="typing"></span><span class="cursor">|</span>
         </h2>
         <p class="hero-sub">
-  <em>“Data tells a story — if you know how to listen.”</em><br>
-  Data Science graduate with a strong focus on data analytics, experienced in SQL, data analysis, data pipeline development, 
-  and dashboarding to support data-driven analysis and operational decision-making.
-  <br>
-  <span class="hero-note">
-    Currently seeking Data Analyst, BI, or Data Science–oriented Fresher / Executive opportunities.
-  </span>
-</p>
+          Mathematics & Computer Science graduate with hands-on experience in full-stack development, AI systems, and
+          data analytics, specializing in NLP, information retrieval, and data-driven applications. <br>
+          <br>Seeking Fresher/Executive opportunities as a Full-stack Developer or Data & Business Analyst.
+        </p>
         <div class="hero-cta">
-          <!-- <a class="btn primary" href="./info/NguyenMinhHung_CV_DataAnalyst.pdf" target="_blank">
-            <i class="fas fa-file-pdf"></i> My CV
-          </a> -->
-          <a class="btn primary" href="https://github.com/nmhung15/" target="_blank" rel="noopener">
+          <a class="btn primary" href="https://github.com/TrungTruong32/" target="_blank" rel="noopener">
             <i class="fab fa-github"></i> Projects
           </a>
-          <a class="btn outline" href="https://www.linkedin.com/in/ngminh-hung/" target="_blank" rel="noopener">
+          <a class="btn outline" href="https://www.linkedin.com/in/trquoc-trung/" target="_blank" rel="noopener">
             <i class="fab fa-linkedin"></i> LinkedIn
           </a>
         </div>
@@ -76,78 +76,133 @@
     </div>
   </section>
 
-    <!-- ABOUT --> 
-    <section id="about" class="section"> 
-        <div class="container"> 
-            <h2 class="section-title"><span>About</span> Me</h2> 
-            <div class="about-grid"> <div class="about-avatar slide-left"> 
-                <div class="avatar-card"> 
-                    <img src="./images/avatar.jpg" alt="avatar" loading="lazy"/> 
-               <div class="avatar-info">
-                    <p><span class="info-label">Full Name:</span> Nguyen Minh Hung</p>
-                    <p><span class="info-label">Job Role:</span> Data Analytics & Engineering</p>
-                    <p><span class="info-label">Education:</span> VNUHCM - University of Science</p>
-                    <p><span class="info-label">Address:</span> (District 7) Ho Chi Minh City, Vietnam</p>
-                    <p><span class="info-label">Interests:</span> Badminton, Music, Travelling</p>
-                </div>
-            </div> 
-        </div> 
-        <div class="about-content slide-right"> 
-            <p class="lead">
-              I am a data-focused graduate with a strong foundation in analytics, statistics, and applied data science. 
-              My work focuses on SQL-based data exploration, data pipeline development, and building dashboards 
-              to support downstream analysis and modeling.
-              <span class="para-break"></span>
-              I work closely with data cleaning, transforming, and validating datasets, while continuously strengthening
-              my technical skills for analytics and data engineering environments.
-            </p>
-            <h3 class="sub-title">Skills</h3> 
-            <ul class="skill-list">
-                <li><span class="skill-label">Programming Language:</span> Python, R, SQL.</li>
-                <li><span class="skill-label">Data Analysis & Visualization:</span> Power BI, Pandas, Matplotlib, Seaborn.</li>
-                <li><span class="skill-label">Databases:</span> MySQL, PostgreSQL, SQL Server, MongoDB.</li>
-                <li><span class="skill-label">AI & ML:</span> PyTorch, TensorFlow, HuggingFace, Scikit-learn, OpenCV.</li>
-                <li><span class="skill-label">Tools:</span> Excel, Jupyter Notebook, Git/GitHub, Draw.io.</li>
-                <li><span class="skill-label">Soft Skills:</span> Analytical Thinking, Problem Solving, Communication, Teamwork.</li>
-                <li><span class="skill-label">Languages:</span> Vietnamese (Native), English (Intermediate).</li>
-            </ul>
-          <!-- Skill Icons -->
-<div class="skill-icons">
-  <i class="fab fa-python" title="Python"></i>
-  <i class="fas fa-database" title="SQL"></i>
-  <i class="fab fa-r-project" title="R Programming"></i>
-  <i class="fas fa-file-excel" title="Excel"></i>
-  <i class="fas fa-chart-line" title="Visualization"></i>
-</div>
-        </div> 
-    </div> 
-</div> 
-</section>
+  <!--  SKILLSET -->
+  <section id="skillset" class="section">
+    <div class="container">
+      <h2 class="section-title"> <span>Skill</span>set</h2>
+      <div class="skillset-grid fade-up">
+        <!-- Programming Card -->
+        <div class="skill-card skill-card-blue">
+          <div class="skill-card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="skill-card-title">Programming</h3>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Languages</h4>
+            <p class="skill-section-content">Python • SQL • C/C++</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Frameworks & Tools</h4>
+            <p class="skill-section-content">Django • n8n • Docker</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Development Tools</h4>
+            <p class="skill-section-content">Git/GitHub • Jupyter Notebook</p>
+          </div>
+        </div>
+
+        <!-- AI/ML Engineer Card -->
+        <div class="skill-card skill-card-green">
+          <div class="skill-card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="skill-card-title">AI / ML</h3>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">ML/DL Frameworks</h4>
+            <p class="skill-section-content">PyTorch • TensorFlow • Scikit-learn</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">NLP & LLMs</h4>
+            <p class="skill-section-content">LangChain • Hugging Face Transformers</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Core Libraries</h4>
+            <p class="skill-section-content">Pandas • NumPy</p>
+          </div>
+        </div>
+
+        <!-- Data/Business Analyst Card -->
+        <div class="skill-card skill-card-orange">
+          <div class="skill-card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="skill-card-title">Data & Business Analyst</h3>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Databases</h4>
+            <p class="skill-section-content">MySQL • PostgreSQL • MongoDB • Qdrant (Vector DB)</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">BI & Visualization</h4>
+            <p class="skill-section-content">Power BI • Matplotlib </p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Office & Reporting</h4>
+            <p class="skill-section-content">Excel • PowerPoint • Office Suite • Draw.io</p>
+          </div>
+        </div>
+
+        <!-- Soft Skills Card -->
+        <div class="skill-card skill-card-purple">
+          <div class="skill-card-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3 class="skill-card-title">Soft Skills</h3>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Core Competencies</h4>
+            <p class="skill-section-content">Analytical Thinking • Problem-Solving</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Collaboration</h4>
+            <p class="skill-section-content">Teamwork • Communication</p>
+          </div>
+
+          <div class="skill-section">
+            <h4 class="skill-section-title">Professional Skills</h4>
+            <p class="skill-section-content">Adaptability • Continuous Learning</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- RESUME -->
-    <section id="resume" class="section alt">
+  <section id="resume" class="section alt">
     <div class="container">
-        <h2 class="section-title"><span>Re</span>sume</h2>
-        
-        <!-- Goals -->
-        <div class="goals fade-up">
-        <div class="goal-card">
-            <h3 class="goal-title">Short-term Goal</h3>
-            <p>Seeking an opportunity to apply data analysis and engineering skills in business and operations contexts, including building data pipelines, supporting reporting, forecasting, and performance improvement.</p>
-        </div>
-        <div class="goal-card">
-            <h3 class="goal-title">Long-term Goal</h3>
-            <p>Grow as a Data Analytics and Engineering professional who bridges data insights, scalable data systems, and business decision-making, driving performance improvements and supporting strategic growth within dynamic organizations.</p>
-        </div>
-        </div>
+      <h2 class="section-title"><span>Re</span>sume</h2>
 
-        <!-- Resume Pair -->
-        <div class="resume-pair fade-up">
-        
+      <!-- Goals -->
+      <div class="goals fade-up">
+        <div class="goal-card">
+          <h3 class="goal-title">Short-term Goal</h3>
+          <p>Seeking a role to apply full-stack, AI, and data analytics skills to build scalable systems and data
+            solutions for business and operational impact.</p>
+        </div>
+        <div class="goal-card">
+          <h3 class="goal-title">Long-term Goal</h3>
+          <p>To become a technical leader who designs data-driven and AI-powered platforms, driving scalable products
+            and strategic business decisions across engineering and analytics teams.</p>
+        </div>
+      </div>
+
+      <!-- Resume Pair -->
+      <div class="resume-pair fade-up">
+
         <!-- Education -->
         <div class="resume-card edu-card">
           <div class="card-head">
-            <i class="fas fa-graduation-cap"></i><h3>Education</h3>
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Education</h3>
           </div>
           <div class="edu-item">
             <div class="edu-year">
@@ -158,12 +213,14 @@
             <div class="edu-body">
               <h3 class="edu-title">VNUHCM - University of Science</h3>
               <p><strong>Bachelor of Science in Mathematics & Computer Science</strong></p>
-              <p>Specialization: <strong>Data Science</strong></p>
-              <p>GPA: <strong>8.3 / 10</strong> (3.51 / 4)</p>
-              <p><em>Relevant Coursework:</em> Data Visualization, Data Mining, AI, ML/DL, NLP, Statistics, Database Systems, etc.</p>
+              <p>Specialization: <strong>Applied Mathematics & Computer Science</strong></p>
+              <p>GPA: <strong>8.23 / 10</strong> (3.49 / 4)</p>
 
+              <p>• Certificate of Merit from the Director of VNU-HCM for graduating with Very Good academic standing and
+                achieving Excellent conduct/discipline results.</p>
+              <p>• Outstanding Encouragement Scholarship, Semester 2, Academic Year 2024–2025.</p>
               <div class="edu-transcript">
-                <a href="./info/NguyenMinhHung_AcademicTranscript.pdf" target="_blank">View Academic Transcript</a>
+                <a href="./info/TruongQuocTrung_AcademicTranscript.pdf" target="_blank">View Academic Transcript</a>
               </div>
             </div>
           </div>
@@ -171,34 +228,37 @@
 
         <!-- Certificates -->
         <div class="resume-card cert-card">
-            <div class="card-head"><i class="fas fa-certificate"></i><h3>Certificates</h3></div>
-            <div class="cert-list">
-              <div class="cert-item">
-                <div class="cert-year">2024</div>
-                <div class="cert-body">
-                  <h4 class="cert-title">VSTEP</h4>
-                  <p>Vietnamese Standardized English Test</p>
-                  <p> Overall: 6.0 - CEFR B2</p>
+          <div class="card-head"><i class="fas fa-certificate"></i>
+            <h3>Certificates</h3>
+          </div>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-year">2025</div>
+              <div class="cert-body">
+                <h4 class="cert-title">Docker & Containerization - Udemy</h4>
+                <p>• Master Docker core: containerization, images, networking, Compose, Swarm.</p>
+                <p>• Build, optimize, and deploy containerized applications in real projects.</p>
+                <div class="edu-transcript">
+                  <a href="./info/TruongQuocTrung_Certificate_Docker.pdf" target="_blank">View Certificate</a>
                 </div>
               </div>
-              <div class="cert-item">
-                  <div class="cert-year">2023</div>
-                  <div class="cert-body">
-                  <h4 class="cert-title">Microsoft Office Specialist (2016)</h4>
-                  <p>Word, Excel, Powerpoint</p>
-                  </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-year">2024</div>
+              <div class="cert-body">
+                <h4 class="cert-title">VSTEP</h4>
+                <p>• Vietnamese Standardized English Test</p>
+                <p> Overall: 6.0 - CEFR B2</p>
               </div>
             </div>
+
+          </div>
         </div>
 
-        </div>
+      </div>
     </div>
 
-    <!-- Download CV
-    <div class="resume-download fade-up">
-    <a href="files/MyCV.pdf" download class="btn-download">Download My CV</a>
-    </div> -->
-    </section>
+  </section>
   <!-- WORK EXPERIENCE -->
   <section id="work" class="section">
     <div class="container">
@@ -206,83 +266,83 @@
       <div class="work-wrap fade-up">
         <article class="work-card">
           <div class="work-thumb">
-            <img src="./images/logo-onpoint.png" alt="Logo OnPoint" loading="lazy"/>
+            <img src="./images/logo_dao_digital.png" alt="Logo Thiên Tân AI - Dao Digital" loading="lazy" />
           </div>
           <div class="work-body">
-            <h3 class="work-title">OnPoint E-Commerce</h3>
-            <p class="work-subtitle">Data Analyst Intern · 10/2025 - Present</p>
-            
-            <!-- Fraud Prevention Project -->
-            <h4 class="work-project-title">Fraud Prevention Project (Internal Controls & Technology Teams)</h4>
-            <ul class="work-list">
-              <li>
-                Took ownership of designing <strong>15 SQL-based fraud detection criteria</strong> with threshold logic 
-                to identify potential commercial fraud behaviors across e-commerce operations.
-              </li>
-              <li>
-                Analyzed large-scale e-commerce datasets covering orders, returns, customers, and warehouse operations 
-                from <strong>01/2025 to 01/2026</strong>, involving over <strong>6 million customer records</strong>.
-              </li>
-              <li>
-                Developed optimized <strong>PostgreSQL queries</strong> (joins, CTEs, subqueries) to consolidate multi-source 
-                data for fraud analysis and internal reporting, successfully identifying <strong>35,000+ suspicious customers</strong>.
-              </li>
-            </ul>
+            <h3 class="work-title">Thien Tan AI - Dao Digital</h3>
+            <p class="work-subtitle">Full Stack Engineer · 09/2025 - 02/2026</p>
 
-            <!-- Auto Reconciliation Project -->
-            <h4 class="work-project-title">Auto Reconciliation Project (Data & Accounting Teams)</h4>
+            <!-- CRM & Marketing Automation System -->
+            <h4 class="work-project-title">CRM & Marketing Automation System (Team size: 1)</h4>
             <ul class="work-list">
               <li>
-                Developed <strong>SQL queries</strong> to extract and calculate key financial metrics 
-                (<strong>net merchandise value, statement amounts</strong>) from raw data.
+                Designed and built a <strong>CRM system</strong> to manage company and customer records, with integrated
+                email sending and automation workflows,
+                including data modeling and N8N-based automation scenarios for large-scale email deployments
+                <strong>(~1,000 emails/day)</strong>. </li>
+              <li>
+                Built an end-to-end automation solution covering <strong>content generation</strong>,
+                <strong>delivery</strong>,
+                <strong>deal management</strong> and<strong> sales pipeline tracking</strong>, reducing manual workload
+                for
+                marketing and sales teams by <strong>over 70%</strong>.
               </li>
               <li>
-                Built <strong>10 reconciliation logic checks</strong> to validate operational data against financial statements 
-                across multiple sources, including <strong>TikTok Shop transactions and inventory records</strong>.
+                Developed an <strong>inbound/outbound email management module</strong>, linking email conversations
+                to leads and deals across all sales stages.
               </li>
               <li>
-                Automated <strong>~80% of manual reconciliation workflows</strong>, significantly improving efficiency, 
-                reducing turnaround time, and enhancing data accuracy for the Accounting team.
+                Designed the backend architecture using <strong>Django</strong>, containerized and deployed
+                with <strong>Docker</strong>, and implemented <strong>PostgreSQL</strong> as the primary database.
+              </li>
+              <li>
+                Integrated <strong> AI</strong> and <strong>n8n</strong> to automate email content generation
+                and marketing workflows.
               </li>
             </ul>
 
             <div class="work-tags">
-              <span>Internship</span><span>Data Analyst</span><span>Fraud Prevention</span><span>Data Reconciliation</span><span>PostgreSQL</span><span>Cross-functional Collaboration</span>
+              <span>Full-time</span><span>Full Stack
+                Engineer</span><span>Django</span><span>Docker</span><span>PostgreSQL</span><span>n8n</span><span>Gemini
+                AI</span><span>System Deployment</span>
             </div>
           </div>
         </article>
 
         <article class="work-card">
           <div class="work-thumb">
-            <img src="./images/lifelog.png" alt="AISIA Lab Lifelogging" loading="lazy"/>
+            <img src="./images/lifelog.png" alt="AISIA Lab Lifelogging" loading="lazy" />
           </div>
           <div class="work-body">
             <h3 class="work-title">AISIA Lab - Lifelog Q&A Dataset</h3>
-            <p class="work-subtitle">Research Intern · 08/2024 - 01/2025</p>
+            <p class="work-subtitle">Freelancer · 08/2024 - 01/2025</p>
             <ul class="work-list">
-            <li>
-              Built and curated a <strong>multimodal lifelogging dataset</strong> by processing images and timestamped records,
-              generating structured Question - Answer (QA) pairs for downstream modeling tasks.
-            </li>
+              <li>
+                Built and curated a <strong>multimodal lifelogging dataset</strong> by processing images and timestamped
+                records,
+                generating structured Question - Answer (QA) pairs for downstream modeling tasks.
+              </li>
 
-            <li>
-              Designed data annotation, cleaning, and evaluation workflows to ensure dataset consistency,
-              factual accuracy, and usability for large language models (LLMs).
-            </li>
+              <li>
+                Designed data annotation, cleaning, and evaluation workflows to ensure dataset consistency,
+                factual accuracy, and usability for large language models (LLMs).
+              </li>
 
-            <li>
-              Collaborated with the research team to construct a benchmark of <strong>over 14,000 QA pairs</strong>,
-              supporting a <strong>Retrieval-Augmented Generation (RAG)</strong> system that achieved
-              <strong>94.35% Recall@20</strong>.
-            </li>
+              <li>
+                Collaborated with the research team to construct a benchmark of <strong>over 14,000 QA pairs</strong>,
+                supporting a <strong>Retrieval-Augmented Generation (RAG)</strong> system that achieved
+                <strong>94.35% Recall@20</strong>.
+              </li>
 
-            <li>
-              Co-authored a research paper accepted at <strong>The 15th ACM International Conference on Multimedia Retrieval (ICMR 2025)</strong>,
-              focusing on QA evaluation for lifelog-based retrieval systems.
-            </li>
-          </ul>
+              <li>
+                Co-authored a research paper accepted at <strong>The 15th ACM International Conference on Multimedia
+                  Retrieval (ICMR 2025)</strong>,
+                focusing on QA evaluation for lifelog-based retrieval systems.
+              </li>
+            </ul>
             <div class="work-tags">
-              <span>Internship</span><span>Data Processing</span><span>Data Annotation</span><span>Teamwork</span><span>Research & Paper Publication</span>
+              <span>Freelancer</span><span>Data Processing</span><span>Data
+                Annotation</span><span>Teamwork</span><span>Research & Paper Publication</span>
             </div>
             <div class="view-paper">
               <a href="https://dl.acm.org/doi/10.1145/3731715.3733263" target="_blank">View Paper</a>
@@ -296,130 +356,124 @@
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section alt"> 
-    <div class="container"> 
-      <h2 class="section-title"><span>Pro</span>jects</h2> 
-      <p class="lead project-subtitle">Here are some selected projects that showcase my skills in Data Analysis, Natural Language Processing, and Machine Learning. 
-        You can also view detailed reports on GitHub by clicking <em>View More</em>.</p> 
+  <section id="projects" class="section alt">
+    <div class="container">
+      <h2 class="section-title"><span>Pro</span>jects</h2>
 
-       <div class="projects-swiper-wrap fade-up"> 
-        <div class="swiper projects-swiper"> 
-          <div class="swiper-wrapper"> 
-            <!-- Slide 1 --> 
-            <div class="swiper-slide"> 
-              <article class="project-card"> 
-                <div class="project-thumb">
-                  <img src="./images/clothing_chain.jpg" alt="National Clothing Chain Analysis" loading="lazy"/>
-                </div> 
-                <div class="project-body no-swipe"> 
-                  <h3>National Clothing Chain Analysis</h3> 
-                  <p class="muted">Final team project in Data Visualization course · Score: 9.75 · 01/2025</p> 
+      <p class="lead project-subtitle">Here are some selected projects that showcase my skills in Data Analysis, Natural
+        Language Processing, and Machine Learning.
+        You can also view detailed reports on GitHub by clicking <em>View More</em>.</p>
+
+      <div class="projects-swiper-wrap fade-up">
+        <div class="swiper projects-swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide 1 -->
+            <div class="swiper-slide">
+              <article class="project-card">
+                <div class="project-thumb"><img src="./images/IR_film.png" alt="Film-Searching" loading="lazy" /></div>
+                <div class="project-body">
+                  <h3>IR: Applications of LSA and Modern Approaches</h3>
+                  <p class="muted">Final project in Numerical Methods for Data Science course · Score: 10 · 07/2025</p>
                   <ul class="project-list">
-                  <li>
-                    Analyzed nationwide online sales and supply chain data of a U.S. clothing retailer
-                    to support data-driven strategy and operational insights.
-                  </li>
-                  <li>
-                    Built <strong>3 interactive Power BI dashboards</strong> using <strong>1,000+ records</strong> across
-                    multiple related tables to monitor revenue, inventory status, and customer segmentation.
-                  </li>
-                  <li>
-                    Developed a <strong>Product Inventory</strong> dashboard with <strong>DAX measures</strong> to track stock levels,
-                    turnover rates, and replenishment risks.
-                  </li>
-                  <li>
-                    Identified key performance trends and summarized actionable insights to support inventory
-                    optimization and business planning.
-                  </li>
-                </ul>
-                  <div class="project-tags"> 
-                    <span>Power BI</span><span>DAX</span><span>Excel</span><span>Data Processing</span> 
-                  </div> 
-                  <div class="project-btn"> 
-                    <a href="https://github.com/nmhung15/Nation-Clothing-Chain-Analysis" target="_blank">View more</a> 
-                  </div> 
-                </div> 
-              </article> 
+                    <li>Developed <strong>NLP-based models integrated with Latent Semantic Analysis (LSA)</strong> for a
+                      film retrieval system.</li>
+                    <li>Crawled and processed a <strong>movie dataset from IMDb (9.504 movies)</strong>, storing it in
+                      MongoDB for scalable querying and analysis.</li>
+                    <li><strong>Performed EDA</strong> on the movie dataset, with a focus on analyzing descriptions.
+                    </li>
+                    <li>Implemented a <strong>Positive Pointwise Mutual Information (PPMI)</strong> model as part of the
+                      document embedding pipeline.</li>
+                  </ul>
+                  <div class="project-tags">
+                    <span>Python</span><span>NLP</span><span>MongoDB</span><span>Qdrant</span><span>EDA</span>
+                  </div>
+                  <div class="project-btn"> <a href="https://github.com/nmhung15/Film-Searching" target="_blank">View
+                      more</a>
+                  </div>
+                </div>
+              </article>
             </div>
-            <!-- Slide 2 --> 
-             <div class="swiper-slide"> 
-              <article class="project-card"> 
-                <div class="project-thumb"><img src="./images/fashion_e-commerce.jpg" alt="Fashion E-Commerce" loading="lazy"/></div> 
-                <div class="project-body"> <h3>Fashion E-Commerce Sales Analysis</h3> 
-                  <p class="muted">Practical team project in Data Visualization course · Score: 9.5 · 11/2024</p> 
+
+            <!-- Slide 2 -->
+
+            <div class="swiper-slide">
+              <article class="project-card">
+                <div class="project-thumb">
+                  <img src="./images/restaurant.png" alt="A Full-stack Restaurant Web Application" loading="lazy" />
+                </div>
+                <div class="project-body no-swipe">
+                  <h3> A Restaurant Web Application</h3>
+                  <p class="muted">Final team project in Web Development course · Score: 9.0 · 01/2025</p>
                   <ul class="project-list">
-                  <li>
-                    Analyzed fashion e-commerce sales data across <strong>7 sales channels</strong>
-                    (Amazon, Flipkart, Myntra, Ajio, etc.) to understand revenue distribution and customer behavior.
-                  </li>
-                  <li>
-                    Built a <strong>Power BI dashboard</strong> on <strong>22,433 records</strong>, covering category-level revenue,
-                    sales channels, and customer segments with interactive filters and drill-down.
-                  </li>
-                  <li>
-                    Explored purchasing trends and seasonal demand patterns to support sales forecasting
-                    and campaign planning.
-                  </li>
-                  <li>
-                    Delivered visual insights to enable data-driven decision-making for marketing
-                    and sales strategy.
-                  </li>
-                </ul>
-                  <div class="project-tags"> 
-                    <span>Power BI</span><span>Excel</span><span>Data Processing</span> 
-                  </div> 
-                  <div class="project-btn"> <a href="https://github.com/nmhung15/Fashion-E-Commerce-Sales-Analysis" target="_blank">View more</a> 
-                  </div> 
-                </div> 
-              </article> 
-            </div> 
-            <!-- Slide 3 --> 
-             <div class="swiper-slide"> 
-              <article class="project-card"> 
-                <div class="project-thumb"><img src="./images/fake-news.png" alt="Fake News" loading="lazy"/></div> 
-                <div class="project-body"> <h3>Fake News Detection</h3> 
-                  <p class="muted">Project in Natural Language Processing course · 06/2025</p> 
-                  <ul class="project-list"> 
-                    <li>Performed <strong>exploratory data analysis (EDA)</strong> and <strong>fine-tuned BERT and XLNet</strong> for fake news classification on a <a href="https://www.kaggle.com/datasets/stevenpeutz/misinformation-fake-news-text-dataset-79k/data" target="_blank" rel="noopener"><strong>79,000-sample English news dataset</strong></a> from multiple international sources.</li> 
-                    <li>Built training pipelines using <strong>HuggingFace Transformers</strong>, configured hyperparameters, and evaluated model.</li>
-                    <li>Results: Both BERT and XLNet achieved strong performance on the task, with F1-scores of <strong>0.973</strong> and <strong>0.9844</strong> respectively, demonstrating the effectiveness of Transformer-based models in tackling misinformation classification.</li> </ul> 
-                    <div class="project-tags"> <span>Python</span><span>NLP</span><span>BERT & XLNet</span><span>Transformers</span><span>EDA</span>
-                    </div> 
-                    <div class="project-btn"> <a href="https://github.com/nmhung15/Fake-News-Detection" target="_blank">View more</a> 
-                    </div> 
-                  </div> 
-                </article> 
-              </div> 
-              <!-- Slide 4 --> 
-               <div class="swiper-slide"> 
-                <article class="project-card"> 
-                  <div class="project-thumb"><img src="./images/IR_film.png" alt="Film-Searching" loading="lazy"/></div> 
-                  <div class="project-body"> 
-                    <h3>IR: Applications of LSA and Modern Approaches</h3> 
-                    <p class="muted">Final project in Numerical Methods for Data Science course · Score: 10 · 07/2025</p> 
-                    <ul class="project-list"> 
-                      <li>Developed <strong>NLP-based models integrated with Latent Semantic Analysis (LSA)</strong> for a film retrieval system.</li> 
-                      <li>Crawled and processed a <strong>movie dataset from IMDb (9.504 movies)</strong>, storing it in MongoDB for scalable querying and analysis.</li> 
-                      <li><strong>Performed EDA</strong> on the movie dataset, with a focus on analyzing descriptions.</li> 
-                      <li>Implemented a <strong>Positive Pointwise Mutual Information (PPMI)</strong> model as part of the document embedding pipeline.</li>
-                    </ul> 
-                    <div class="project-tags"> <span>Python</span><span>NLP</span><span>MongoDB</span><span>EDA</span>
-                    </div> 
-                    <div class="project-btn"> <a href="https://github.com/nmhung15/Film-Searching" target="_blank">View more</a> 
-                    </div> 
-                  </div> 
-                </article> 
-              </div> 
-            </div> 
-            <!-- Navigation --> 
-             <div class="swiper-button-prev"></div> 
-             <div class="swiper-button-next"></div> 
-            </div> 
-          </div> 
-          <div class="more center"> <a class="btn outline" href="https://github.com/nmhung15/" target="_blank"><i class="fab fa-github"></i>View more on GitHub</a> 
-          </div> 
-        </div> 
-      </section>
+                    <li>
+                      Built a <strong>restaurant web application</strong> with separate customer pages
+                      and an <strong>admin dashboard</strong> for menu and content management.
+                    </li>
+                    <li>
+                      Designed the <strong>database schema</strong> and implemented <strong>backend services</strong> to
+                      support core business logic
+                      and data persistence using <strong>MySQL</strong>.
+                    </li>
+                    <li>
+                      <strong>Led task planning</strong>, assigned responsibilities, tracked progress
+                      and coordinated team members to ensure <strong>timely delivery</strong> and smooth feature
+                      integration.
+                    </li>
+                    <li>
+                      Prepared the <strong>final report</strong>, summarized project outcomes
+                      and presented results and progress updates to the supervising lecturer.
+                    </li>
+                  </ul>
+                  <div class="project-tags">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span>
+                  </div>
+                  <div class="project-btn">
+                    <a href="https://github.com/TrungTruong32/Web-Restaurant" target="_blank">View more</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide">
+              <article class="project-card">
+                <div class="project-thumb"><img src="./images/chatbot.jpg" alt="Vietnamese Q&A Chatbot"
+                    loading="lazy" /></div>
+                <div class="project-body">
+                  <h3>Vietnamese Q&A Chatbot with RAG</h3>
+                  <p class="muted">Demo project for Youth Union · 01/2025</p>
+                  <ul class="project-list">
+                    <li>Developed a <strong>Vietnamese question-answering chatbot demo</strong> using
+                      <strong>Gradio</strong> and <strong>LangChain</strong>, enabling interactive user queries through
+                      a web UI interface.</li>
+                    <li>Implemented <strong>RAG (Retrieval-Augmented Generation)</strong> with document preprocessing
+                      and <strong>semantic search using Qdrant</strong>, improving accuracy over static LLM responses.
+                    </li>
+                    <li>Processed and indexed documents to support <strong>contextual retrieval</strong> and integrated
+                      <strong>notebook-based workflows</strong> to demonstrate model interaction and performance.</li>
+                    <li>Designed the prototype, tested chatbot interactions, and documented key technical steps to
+                      showcase <strong>conversational AI utility</strong> for the Youth Union demo.</li>
+                  </ul>
+                  <div class="project-tags">
+                    <span>Python</span><span>LangChain</span><span>Gradio</span><span>Qdrant</span><span>RAG</span><span>NLP</span>
+                  </div>
+                  <div class="project-btn"> <a href="#" target="_blank">View more</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+          <!-- Navigation -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="more center"> <a class="btn outline" href="https://github.com/TrungTruong32/" target="_blank"><i
+            class="fab fa-github"></i>View more on GitHub</a>
+      </div>
+    </div>
+  </section>
 
   <!-- ACTIVITIES -->
   <section id="activities" class="section">
@@ -428,12 +482,12 @@
 
       <div class="activity-card fade-up">
         <h3 class="activity-title">Youth Union Activities</h3>
-        <p class="activity-time">10/2021 – 06/2024</p>
+        <p class="activity-time">10/2021 – 10/2023</p>
         <p class="activity-desc">
-          Before focusing on my specialized studies, I actively participated in the Youth Union. 
-          Through these activities, I gained valuable experience in teamwork, communication, 
-          problem-solving, and leadership. I also had opportunities to contribute to 
-          volunteering campaigns, student events, and community projects, which helped me 
+          Before focusing on my specialized studies, I actively participated in the Youth Union.
+          Through these activities, I gained valuable experience in teamwork, communication,
+          problem-solving, and leadership. I also had opportunities to contribute to
+          volunteering campaigns, student events, and community projects, which helped me
           grow both personally and professionally.
         </p>
 
@@ -449,12 +503,13 @@
         <h4 class="activity-subtitle">Certificates & Awards</h4>
         <div class="activity-gallery grid-3">
           <div class="activity-img">
-            <img src="./images/activities/giay_khen_Dang_uy.png" alt="Youth Union Certificate 1" loading="lazy">
-            <p class="img-caption">Commendation Certificate from the University Party Committee</p>
+            <img src="./images/activities/Sinh_vien_5_tot_cap_thanh.png" alt="Youth Union Certificate 1" loading="lazy">
+            <p class="img-caption">Awarded the title of "Sinh Viên 5 Tốt" at Vietnam National University Ho Chi Minh
+              City 2025 </p>
           </div>
           <div class="activity-img">
             <img src="./images/activities/thanh_nien_tien_tien.jpg" alt="Youth Union Certificate 2" loading="lazy">
-            <p class="img-caption">Advanced Youth Follow President Ho Chi Minh’s Wills</p>
+            <p class="img-caption">Advanced Youth Follow President Ho Chi Minh’s Wills 2022</p>
           </div>
           <div class="activity-img">
             <img src="./images/activities/mod.png" alt="Youth Union Certificate 3" loading="lazy">
@@ -474,8 +529,8 @@
             <p class="img-caption">First Prize winner in the 2022 Legal Knowledge Competition (team achievement)</p>
           </div>
           <div class="activity-img">
-            <img src="./images/activities/tiep_suc_mua_thi.png" alt="Youth Union Event 3" loading="lazy">
-            <p class="img-caption">Organizer of the “Exam Support Campaign” for students</p>
+            <img src="./images/activities/Youth_Union2.jpg" alt="Youth Union Event 3" loading="lazy">
+            <p class="img-caption">Participant of the “Sáng Mãi Tên Người” 2022</p>
           </div>
         </div>
       </div>
@@ -488,52 +543,53 @@
       <h2 class="section-title"><span>Con</span>tact</h2>
       <p class="lead contact-subtitle">Below are the details to reach out to me</p>
       <div class="contact-grid">
-        
-      <div class="contact-item">
-        <div class="icon neon"><i class="fas fa-phone"></i></div>
-        <span class="contact-title">Phone Number</span>
-        <span class="contact-text">0762.116.689</span>
-      </div>
 
-      <div class="contact-item">
-        <div class="icon neon"><i class="fas fa-envelope"></i></div>
-        <span class="contact-title">Email Address</span>
-        <span class="contact-text">
-          <a href="mailto:ngmhung.work@gmail.com">ngmhung.work@gmail.com</a>
-        </span>
-      </div>
+        <div class="contact-item">
+          <div class="icon neon"><i class="fas fa-phone"></i></div>
+          <span class="contact-title">Phone Number</span>
+          <span class="contact-text">
+            <a href="tel:0396901493">039.690.1493</a>
+        </div>
 
-      <div class="contact-item">
-        <div class="icon neon"><i class="fab fa-linkedin"></i></div>
-        <span class="contact-title">LinkedIn</span>
-        <span class="contact-text">
-          <a href="https://www.linkedin.com/in/ngminh-hung/" target="_blank">ng-minhhung</a>
-        </span>
-      </div>
+        <div class="contact-item">
+          <div class="icon neon"><i class="fas fa-envelope"></i></div>
+          <span class="contact-title">Email Address</span>
+          <span class="contact-text">
+            <a href="mailto:trung.truong.work@gmail.com"> trungtruong.hcmus@gmail.com</a>
+          </span>
+        </div>
 
-      <div class="contact-item">
-        <div class="icon neon"><i class="fas fa-map-marker-alt"></i></div>
-        <span class="contact-title">Address</span>
-        <span class="contact-text">(District 7) HCM City, Vietnam</span>
-      </div>
+        <div class="contact-item">
+          <div class="icon neon"><i class="fab fa-linkedin"></i></div>
+          <span class="contact-title">LinkedIn</span>
+          <span class="contact-text">
+            <a href="https://www.linkedin.com/in/trquoc-trung/" target="_blank">trquoc-trung</a>
+          </span>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon neon"><i class="fas fa-map-marker-alt"></i></div>
+          <span class="contact-title">Address</span>
+          <span class="contact-text">(District 7) HCM City, Vietnam</span>
+        </div>
 
       </div>
-            <p class="lead contact-subtitle"> </p>
-            <br>
-            <p class="lead contact-subtitle">Thank you very much!</p>
+      <p class="lead contact-subtitle"> </p>
+      <br>
+      <p class="lead contact-subtitle">Thank you very much!</p>
     </div>
   </section>
 
 
   <footer class="foot">
-    <div class="container">© 2025 Hung Nguyen — All rights reserved.</div>
-    <div class="container">Latest Version: 11/01/2026.</div>
+    <div class="container">© 2026 Trung Truong — All rights reserved.</div>
+    <div class="container">Latest Version: 24/02/2026.</div>
   </footer>
 
-    <!-- Back to Top Button -->
-    <button id="back-to-top" title="Back to top">
-      <span class="arrow-up">&#8593;</span>
-    </button>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" title="Back to top">
+    <span class="arrow-up">&#8593;</span>
+  </button>
 
 
   <!-- Script -->
@@ -541,4 +597,5 @@
   <script src="script.js?v=1.0.1"></script>
 
 </body>
+
 </html>
