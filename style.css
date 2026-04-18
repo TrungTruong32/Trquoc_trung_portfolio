@@ -518,6 +518,8 @@ section {
 .cert-item:hover { transform:scale(1.02); box-shadow:0 6px 20px rgba(255,213,74,0.25); }
 .cert-year { color: var(--gold-2); font-weight:600; width:60px; }
 .cert-title { color: var(--gold); margin-bottom:4px; }
+.cert-title a { color: var(--gold); text-decoration: underline; }
+.cert-title a:hover { color: #ffdd55; }
 
 .resume-download {
   display: flex;
@@ -598,6 +600,8 @@ section {
   font-size: 1.25rem;
   font-weight: 600;
 }
+.work-project-title a { color: var(--gold); text-decoration: underline; }
+.work-project-title a:hover { color: #ffdd55; }
 
 /* Subtitle */
 .work-subtitle {
