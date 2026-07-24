@@ -42,7 +42,7 @@ nav a.active {
 }
 
 body {
-  padding-top: 60px; 
+  padding-top: 64px; /* match .nav-inner height so top of page isn't clipped by fixed navbar */
 }
 section {
   scroll-margin-top: 70px; /* chừa khoảng cho navbar fixed */
@@ -546,22 +546,6 @@ section {
    WORK SECTION
 ========================= */
 
-/* Wrapper */
-.work-wrap {
-  display: grid;
-  grid-template-columns: 1fr; /* mobile default */
-  gap: 24px;
-  justify-items: center;
-}
-
-/* 2 columns on tablet & desktop */
-@media (min-width: 768px) {
-  .work-wrap {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: stretch;
-  }
-}
-
 /* Work Card */
 .work-card {
   background: #0f0f0f;
@@ -696,8 +680,63 @@ section {
 }
 
 
+/* ---------- WORK EXPERIENCE — carousel ---------- */
+/* Wrap + swiper container: mirrors .projects-swiper so the two sections read as one system */
+.work-swiper-wrap { margin-top: 8px; }
+
+.work-swiper {
+  padding: 8px 8px 44px;
+  overflow: hidden;
+}
+
+.work-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+/* Bound the card height so ~3 fit within one screen; long cards scroll internally.
+   clamp: never below 460px, tracks 74% of viewport height, capped at 660px. */
+.work-swiper .work-card {
+  height: clamp(460px, 74vh, 660px);
+  align-items: stretch;   /* override the mobile align-items:center so body stays full-width */
+}
+
+/* Logo pinned at the top of the card */
+.work-swiper .work-thumb { flex-shrink: 0; }
+.work-swiper .work-thumb img { height: 140px; }
+
+/* Body = fixed header (company + role + dates) above a scrollable details region */
+.work-swiper .work-body {
+  flex: 1 1 auto;
+  height: auto;
+  min-height: 0;          /* lets the inner scroll region actually overflow */
+  width: 100%;
+  overflow: hidden;
+}
+
+.work-swiper .work-title,
+.work-swiper .work-subtitle { flex-shrink: 0; }
+
+/* Only the project details (titles, bullets, tags) scroll — company name stays visible */
+.work-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  margin-top: 4px;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 213, 74, 0.35) transparent;
+}
+
+.work-scroll::-webkit-scrollbar { width: 8px; }
+.work-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 213, 74, 0.28);
+  border-radius: 8px;
+}
+.work-scroll::-webkit-scrollbar-track { background: transparent; }
+
 /* ---------- PROJECTS ---------- */
-.project-subtitle { 
+.project-subtitle {
   text-align: center; 
   margin-top: 6px; 
   color: #bbb; 
@@ -835,11 +874,19 @@ section {
   transition: transform .2s ease, background-color .2s ease; 
 } 
 
-.swiper-button-next:hover, 
-.swiper-button-prev:hover { 
-  transform: scale(1.1); 
-  background: rgba(255,213,74,0.18); 
-} 
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.1);
+  background: rgba(255,213,74,0.18);
+}
+
+/* Pagination dots — gold to match theme (applies to both work + projects swipers) */
+.work-swiper, .projects-swiper {
+  --swiper-pagination-color: var(--gold);
+  --swiper-pagination-bullet-inactive-color: #ffffff;
+  --swiper-pagination-bullet-inactive-opacity: 0.35;
+  --swiper-pagination-bullet-size: 9px;
+}
 
 /* Cho phép bôi đen chữ trong vùng project-body */
 .no-swipe, .no-swipe * {
@@ -1054,6 +1101,7 @@ section {
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr; text-align:center}
+  .avatar-wrap{margin-inline:auto} /* center avatar when hero stacks to 1 column */
   .skillset-grid{grid-template-columns:repeat(2, 1fr)}
   .resume-pair{grid-template-columns:1fr}
   .work-card{grid-template-columns:1fr;align-items:center}

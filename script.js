@@ -119,29 +119,41 @@ const scrollObserver = new IntersectionObserver((entries) => {
 
 scrollEls.forEach(el => scrollObserver.observe(el));
 
-/* ---------------- PROJECTS CAROUSEL ---------------- */ 
-document.addEventListener("DOMContentLoaded", function(){ 
-  const el = document.querySelector(".projects-swiper"); 
-  if(!el) return; 
-
-  new Swiper(el, { 
-    slidesPerView: 3, 
-    spaceBetween: 22, 
-    navigation: { 
-      nextEl: ".swiper-button-next", 
-      prevEl: ".swiper-button-prev", 
-    },
-    // Cho phép chọn chữ trong vùng .no-swipe
+/* ---------------- CAROUSELS (Work + Projects) ---------------- */
+document.addEventListener("DOMContentLoaded", function(){
+  // Shared config: 1 card on mobile, 2 on tablet, 3 on desktop.
+  // With >3 slides the extra cards become horizontally swipeable.
+  const baseConfig = {
+    slidesPerView: 3,
+    spaceBetween: 22,
+    // Cho phép chọn chữ + cuộn dọc trong vùng .no-swipe (không hijack thành vuốt ngang)
     noSwiping: true,
     noSwipingClass: 'no-swipe',
     touchStartPreventDefault: false,
+    breakpoints: {
+      0:    { slidesPerView: 1 },
+      640:  { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  };
 
-    breakpoints: { 
-      0: { slidesPerView: 1 }, 
-      640: { slidesPerView: 2 }, 
-      1024:{ slidesPerView: 3 } 
-    } 
-  }); 
+  // Nav buttons are scoped to each swiper's own element (not global selectors),
+  // otherwise two carousels sharing .swiper-button-next/prev would fight over the
+  // first match in the DOM (work precedes projects) and break projects navigation.
+  document.querySelectorAll(".work-swiper, .projects-swiper").forEach(function(el){
+    new Swiper(el, Object.assign({}, baseConfig, {
+      navigation: {
+        nextEl: el.querySelector(".swiper-button-next"),
+        prevEl: el.querySelector(".swiper-button-prev")
+      },
+      // Clickable dots — the primary navigation affordance on mobile, where the
+      // .no-swipe detail region blocks horizontal swipe on most of the card.
+      pagination: {
+        el: el.querySelector(".swiper-pagination"),
+        clickable: true
+      }
+    }));
+  });
 });
 
 // Smooth scroll khi click vào navbar

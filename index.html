@@ -10,12 +10,11 @@
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/4f53b5a3a1.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css?v=1.0.1" />
+  <link rel="stylesheet" href="style.css?v=1.0.4" />
 </head>
 
 <body>
@@ -95,7 +94,7 @@
 
           <div class="skill-section">
             <h4 class="skill-section-title">Frameworks & Tools</h4>
-            <p class="skill-section-content">Django • n8n • Docker</p>
+            <p class="skill-section-content">Django • Vue 3 • n8n • Docker</p>
           </div>
 
           <div class="skill-section">
@@ -136,7 +135,7 @@
 
           <div class="skill-section">
             <h4 class="skill-section-title">Databases</h4>
-            <p class="skill-section-content">PostgreSQL • MySQL  • MongoDB • Qdrant (Vector DB)</p>
+            <p class="skill-section-content">PostgreSQL • Supabase • MySQL  • MongoDB • Qdrant (Vector DB)</p>
           </div>
 
           <div class="skill-section">
@@ -266,7 +265,63 @@
   <section id="work" class="section">
     <div class="container">
       <h2 class="section-title"><span>Work</span> Experience</h2>
-      <div class="work-wrap fade-up">
+      <div class="work-swiper-wrap fade-up">
+        <div class="swiper work-swiper">
+          <div class="swiper-wrapper">
+
+            <!-- Experience 1 -->
+            <div class="swiper-slide">
+        <article class="work-card">
+          <div class="work-thumb">
+            <img src="./images/logo-onpoint.png" alt="OnPoint Ecommerce" loading="lazy" />
+          </div>
+          <div class="work-body">
+            <h3 class="work-title">OnPoint Ecommerce</h3>
+            <p class="work-subtitle">AI Engineer Intern · Data Solutions Team · 06/2026 - Present</p>
+
+            <div class="work-scroll no-swipe">
+            <!-- TTMS Audience Data Pipeline -->
+            <h4 class="work-project-title">TTMS Audience Data Pipeline</h4>
+            <ul class="work-list">
+              <li>
+                Built an <strong>end-to-end automated data pipeline</strong> (Python + Supabase / PostgreSQL) that
+                replaced a fully manual analytics-export workflow, delivering <strong>~849K validated rows</strong>
+                across <strong>6 dataset families</strong> for <strong>16 consumer brands</strong> with
+                <strong>zero manual clicking</strong>.
+              </li>
+              <li>
+                <strong>Reverse-engineered</strong> an undocumented third-party analytics API and
+                implemented a <strong>rate-protected extractor</strong> (low concurrency, jitter, backoff, soft-failure
+                detection) to safely pull <strong>~18 months</strong> of history.
+              </li>
+              <li>
+                Designed a <strong>medallion data architecture</strong> (Bronze raw datalake → Gold modeled tables)
+                with composite natural keys, making every load <strong>idempotent</strong> and re-runnable without
+                re-crawling the rate-limited source.
+              </li>
+              <li>
+                Enforced <strong>data fidelity</strong> as the core requirement: reconciled modeled output against
+                source exports to an <strong>exact, byte-identical tie-out</strong>, backed by <strong>~585 automated
+                tests</strong> and per-load data-quality assertions.
+              </li>
+              <li>
+                Contributed to a live <strong>5-view dashboard</strong> (Vue 3 + TypeScript) and a
+                <strong>Chrome extension (MV3)</strong> for a passwordless, self-healing daily refresh, delivered
+                through an <strong>agentic AI-assisted development</strong> workflow (discuss → plan → execute → verify).
+              </li>
+            </ul>
+
+            <div class="work-tags">
+              <span>Internship</span><span>AI Engineer</span><span>Data Engineering</span><span>Python</span><span>Supabase</span><span>PostgreSQL</span><span>Vue
+                3</span><span>Chrome Extension</span><span>ETL / Data Pipeline</span><span>AI-Assisted Development</span>
+            </div>
+            </div>
+          </div>
+        </article>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="swiper-slide">
         <article class="work-card">
           <div class="work-thumb">
             <img src="./images/logo_dao_digital.png" alt="Logo Thiên Tân AI - Dao Digital" loading="lazy" />
@@ -275,6 +330,7 @@
             <h3 class="work-title">Thien Tan AI - Dao Digital</h3>
             <p class="work-subtitle">Full Stack Engineer · 09/2025 - 03/2026</p>
 
+            <div class="work-scroll no-swipe">
             <!-- CRM & Marketing Automation System -->
             <h4 class="work-project-title">CRM & Marketing Automation System</h4>
             <ul class="work-list">
@@ -309,9 +365,13 @@
                 Engineer</span><span>Django</span><span>Docker</span><span>PostgreSQL</span><span>n8n</span><span>Gemini
                 AI</span><span>System Deployment</span>
             </div>
+            </div>
           </div>
         </article>
+            </div>
 
+            <!-- Experience 3 -->
+            <div class="swiper-slide">
         <article class="work-card">
           <div class="work-thumb">
             <img src="./images/lifelog.png" alt="AISIA Lab Lifelogging" loading="lazy" />
@@ -319,6 +379,7 @@
           <div class="work-body">
             <h3 class="work-title">AISIA Lab </h3>
             <p class="work-subtitle">Research Intern · 08/2024 - 01/2025</p>
+            <div class="work-scroll no-swipe">
             <h4 class="work-project-title">Lifelog Q&A Dataset Project - <a href="https://dl.acm.org/doi/10.1145/3731715.3733263" target="_blank">View Paper</a></h4>
             <ul class="work-list">
               <li>
@@ -367,9 +428,17 @@
             <!-- <div class="view-paper">
               <a href="https://dl.acm.org/doi/10.1145/3731715.3733263" target="_blank">View Paper</a>
             </div> -->
+            </div>
           </div>
         </article>
+            </div>
 
+          </div>
+          <!-- Navigation -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -479,6 +548,7 @@
           <!-- Navigation -->
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
       <div class="more center"> <a class="btn outline" href="https://github.com/TrungTruong32/" target="_blank"><i
@@ -595,7 +665,7 @@
 
   <footer class="foot">
     <div class="container">© 2026 Trung Truong — All rights reserved.</div>
-    <div class="container">Latest Version: 29/04/2026.</div>
+    <div class="container">Latest Version: 24/07/2026.</div>
   </footer>
 
   <!-- Back to Top Button -->
@@ -606,7 +676,7 @@
 
   <!-- Script -->
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-  <script src="script.js?v=1.0.1"></script>
+  <script src="script.js?v=1.0.4"></script>
 
 </body>
 
