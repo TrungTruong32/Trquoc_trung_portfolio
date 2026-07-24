@@ -156,6 +156,35 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 
+/* ---------------- WORK DURATION (auto month count) ---------------- */
+// Appends "(N months)" to each .work-period from its data-start / data-end.
+// Months are counted inclusively (e.g. 2026-06 → 2026-07 = 2 months), matching
+// how a CV reads a range. data-end="present" tracks the current date, so an
+// ongoing role never shows a stale number.
+document.addEventListener("DOMContentLoaded", function(){
+  const toMonths = s => {                    // "YYYY-MM" -> absolute month index
+    const [y, m] = s.split("-").map(Number);
+    return y * 12 + (m - 1);
+  };
+
+  document.querySelectorAll(".work-period[data-start]").forEach(function(el){
+    const start = toMonths(el.dataset.start);
+    let end;
+    if (el.dataset.end === "present") {
+      const now = new Date();
+      end = now.getFullYear() * 12 + now.getMonth();
+    } else {
+      end = toMonths(el.dataset.end);
+    }
+
+    const n = Math.max(1, end - start + 1);   // inclusive; guard against bad data
+    const span = document.createElement("span");
+    span.className = "work-duration";
+    span.textContent = ` (${n} ${n === 1 ? "month" : "months"})`;
+    el.appendChild(span);
+  });
+});
+
 // Smooth scroll khi click vào navbar
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function(e) {

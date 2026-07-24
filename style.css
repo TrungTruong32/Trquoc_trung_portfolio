@@ -588,10 +588,20 @@ section {
 .work-project-title a:hover { color: #ffdd55; }
 
 /* Subtitle */
-.work-subtitle {
+/* Role on one line, time period on the next */
+.work-role {
   color: var(--muted);
   font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+.work-period {
+  color: #bbb;
+  font-size: 0.9rem;
   margin-bottom: 10px;
+}
+.work-duration {
+  color: var(--gold);
+  font-weight: 600;
 }
 
 /* Bullet list */
@@ -715,7 +725,8 @@ section {
 }
 
 .work-swiper .work-title,
-.work-swiper .work-subtitle { flex-shrink: 0; }
+.work-swiper .work-role,
+.work-swiper .work-period { flex-shrink: 0; }
 
 /* Only the project details (titles, bullets, tags) scroll — company name stays visible */
 .work-scroll {
