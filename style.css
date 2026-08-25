@@ -1,18 +1,29 @@
 /* ---------- BASE ---------- */
 :root{
-  --bg:#000;
-  --panel:#0c0c0c;
-  --text:#fff;
-  --muted:#ffffff;
+  /* Theme aligned with presentation.html (glassmorphism + gradient) */
+  --bg-0:#05060d;
+  --bg-1:#0b1026;
+  --bg:#05060d;
+  --panel:rgba(255,255,255,.05);
+  --ink:#e9edff;
+  --text:#e9edff;
+  --muted:#a6afd4;
+  --muted-2:#8b96c2;
   --gold:#ffd54a; /*ffd54a */
   --gold-2:#ffdf85;
-  --line: rgba(255,213,74,.12);
-  --glow: 0 10px 40px rgba(255,213,74,.12);
+  --cyan:#38e1ff;
+  --indigo:#6d7bff;
+  --violet:#b58bff;
+  --line: rgba(255,255,255,.12);
+  --glass: rgba(255,255,255,.055);
+  --glass-2: rgba(255,255,255,.09);
+  --glow: 0 20px 60px rgba(0,0,0,.45);
+  --mono:'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Roboto',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+  font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
   background:
     radial-gradient(900px 400px at 10% -10%, rgba(255,213,74,.03), transparent 40%),
     radial-gradient(800px 600px at 110% 10%, rgba(255,213,74,.02), transparent 40%),
@@ -1193,6 +1204,110 @@ section {
 /* ---------- EXTRA ---------- */
 .divider{height:80px;background:linear-gradient(270deg,#ffd54a,#ffdf85);clip-path:polygon(0 100%,100% 0,100% 100%);}
 @keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+
+/* ============================================================
+   GLASSMORPHISM THEME — matches presentation.html
+   Appended last so it overrides the legacy dark/gold surfaces.
+   ============================================================ */
+
+/* Animated gradient background + drifting blobs (site-wide, behind content) */
+.bg{
+  position:fixed; inset:0; z-index:-1; overflow:hidden;
+  background:
+    radial-gradient(1200px 800px at 15% 10%, #131a3f 0%, transparent 55%),
+    radial-gradient(1000px 700px at 85% 90%, #1a1140 0%, transparent 55%),
+    linear-gradient(160deg, var(--bg-1) 0%, var(--bg-0) 70%);
+}
+.bg .blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;will-change:transform;}
+.bg .b1{width:46vw;height:46vw;left:-8vw;top:-10vw;background:radial-gradient(circle,var(--indigo),transparent 65%);animation:drift1 22s ease-in-out infinite;}
+.bg .b2{width:40vw;height:40vw;right:-6vw;bottom:-12vw;background:radial-gradient(circle,var(--violet),transparent 65%);animation:drift2 26s ease-in-out infinite;}
+.bg .b3{width:30vw;height:30vw;left:40vw;top:45vh;background:radial-gradient(circle,var(--cyan),transparent 65%);opacity:.28;animation:drift3 30s ease-in-out infinite;}
+.bg::after{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse at center, #000 40%, transparent 85%);
+  mask-image:radial-gradient(ellipse at center, #000 40%, transparent 85%);
+}
+@keyframes drift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vw,5vh) scale(1.12)}}
+@keyframes drift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-5vw,-6vh) scale(1.1)}}
+@keyframes drift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-7vw,4vh) scale(1.2)}}
+
+body{background:var(--bg-0);}
+
+/* Navbar → translucent glass */
+.navbar{
+  background:rgba(9,12,28,.72);
+  backdrop-filter:blur(14px) saturate(120%);
+  -webkit-backdrop-filter:blur(14px) saturate(120%);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 20px rgba(0,0,0,.35);
+}
+.brand span{color:var(--ink);}
+.nav-links a{color:var(--muted);}
+
+/* Panels → frosted glass (box-shadow reset to the soft dark glow) */
+.work-card,
+.project-card,
+.resume-card,
+.goal-card,
+.activity-card,
+.cert-item,
+.activity-img,
+.skill-icons,
+.contact-item{
+  background:var(--glass);
+  border:1px solid var(--line);
+  backdrop-filter:blur(16px) saturate(120%);
+  -webkit-backdrop-filter:blur(16px) saturate(120%);
+  box-shadow:var(--glow);
+}
+
+/* Skill cards → glass, but KEEP their coloured accent glows (no box-shadow override) */
+.skill-card{
+  background:var(--glass);
+  border:1px solid var(--line);
+  backdrop-filter:blur(16px) saturate(120%);
+  -webkit-backdrop-filter:blur(16px) saturate(120%);
+}
+
+/* Section backdrops → let the gradient show through */
+.section.alt{background:rgba(255,255,255,.02);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.contact-alt{background:rgba(255,255,255,.015);}
+
+/* Contact icon chip → glass */
+.contact-item .icon{background:var(--glass-2);border:1px solid var(--line);color:var(--gold);}
+.contact-title{color:var(--ink);}
+
+/* Tags → mono pills (unify with deck) */
+.work-tags span,
+.project-tags span,
+.activity-tags span,
+.work-stack-label{font-family:var(--mono);}
+.work-tags span,
+.project-tags span,
+.activity-tags span{
+  background:rgba(255,213,74,.07);
+  border:1px solid rgba(255,213,74,.18);
+  color:var(--gold);
+}
+
+/* Mono for meta / date text */
+.eyebrow,.work-period,.work-role,.cert-year,.edu-year,.activity-time,.project-body .muted{font-family:var(--mono);}
+.eyebrow{color:var(--cyan);}
+
+/* Section title accent → gold gradient like the deck */
+.section-title span{
+  background:linear-gradient(120deg,var(--gold),var(--gold-2) 55%,#ff8a3d);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  text-shadow:none;
+}
+
+/* Outline button → neutral glass border */
+.btn.outline{border-color:var(--line);background:var(--glass);}
 
 
 
