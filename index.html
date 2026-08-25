@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Trung Truong's Portfolio">
   <title>Trung Truong — Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
 
   <!-- Fonts & Icons -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
@@ -312,10 +313,51 @@
               </li>
             </ul>
 
-            <div class="work-tags">
-              <span>Internship</span><span>AI Engineer</span><span>Data Engineering</span><span>Python</span><span>Supabase</span><span>PostgreSQL</span><span>Vue
-                3</span><span>Chrome Extension</span><span>ETL / Data Pipeline</span><span>AI-Assisted Development</span>
+            <!-- OnPoint HR Ecosystem -->
+            <h4 class="work-project-title">HR Ecosystem — Unified Multi-Module HR Platform</h4>
+            <ul class="work-list">
+              <li>
+                Co-built a <strong>unified HR platform</strong> (Next.js 14 App Router + TypeScript,
+                NextAuth v5, Supabase / PostgreSQL) that consolidated <strong>5 HR subsystems</strong> —
+                AI Readiness Test, HR Core, Hiring / ATS, Onboarding Hub and Approvals — into a
+                <strong>single app with one sign-on</strong>, spanning <strong>100+ API routes</strong>
+                and <strong>60+ pages</strong>.
+              </li>
+              <li>
+                Delivered the flagship <strong>AI Readiness Assessment</strong> module: configurable exams
+                with <strong>automated multiple-choice grading</strong>, a human <strong>reviewer approval
+                queue</strong> for essay answers, a case-study library, candidate benchmarking, and full
+                exam / session administration.
+              </li>
+              <li>
+                Designed a custom <strong>capability-based authorization layer</strong>
+                (<code>getPrincipal → can</code>) with a <strong>3-gate model</strong>
+                (surface → capability → <strong>row-level scope</strong>: owned / hierarchy / department),
+                replacing legacy role checks and gating <strong>~80 protected routes</strong> across every
+                subsystem.
+              </li>
+              <li>
+                Implemented a <strong>hub-and-spoke, multi-schema data architecture</strong> on Supabase
+                with <strong>RLS deny-all + server-only service role</strong>, a single-source-of-truth
+                person model and <strong>MISA HR import</strong>; hardened through a security audit with
+                <strong>zero exploitable critical / high</strong> findings.
+              </li>
+              <li>
+                Shipped <strong>bilingual (Vietnamese / English) i18n</strong> across all 5 modules and
+                backed the codebase with <strong>~155 automated test suites</strong>, built through an
+                <strong>agentic AI-assisted workflow</strong> (plan → execute → review).
+              </li>
+            </ul>
             </div>
+
+            <div class="work-stack">
+              <span class="work-stack-label">Stack</span>
+              <div class="work-tags">
+                <span>Internship</span><span>AI Engineer</span><span>Data Engineering</span><span>Python</span><span>Supabase</span><span>PostgreSQL</span><span>Vue
+                  3</span><span>Chrome Extension</span><span>ETL / Data Pipeline</span><span>Next.js 14</span><span>TypeScript</span><span>NextAuth
+                  v5</span><span>RBAC / Authorization</span><span>Multi-Module Platform</span><span>i18n</span><span>Security</span><span>AI-Assisted
+                  Development</span>
+              </div>
             </div>
           </div>
         </article>
@@ -361,12 +403,15 @@
                 and marketing workflows.
               </li>
             </ul>
-
-            <div class="work-tags">
-              <span>Full-time</span><span>Full Stack
-                Engineer</span><span>Django</span><span>Docker</span><span>PostgreSQL</span><span>n8n</span><span>Gemini
-                AI</span><span>System Deployment</span>
             </div>
+
+            <div class="work-stack">
+              <span class="work-stack-label">Stack</span>
+              <div class="work-tags">
+                <span>Full-time</span><span>Full Stack
+                  Engineer</span><span>Django</span><span>Docker</span><span>PostgreSQL</span><span>n8n</span><span>Gemini
+                  AI</span><span>System Deployment</span>
+              </div>
             </div>
           </div>
         </article>
@@ -423,14 +468,15 @@
               </li>
 
             </ul>
-            <div class="work-tags">
-              <span>Research Intern</span><span>Data Processing</span><span>Data
-                Annotation</span><span>Teamwork</span><span>Research & Paper Publication</span><span>RAG</span>
-                <span>QA Systems</span><span>NLP</span>
             </div>
-            <!-- <div class="view-paper">
-              <a href="https://dl.acm.org/doi/10.1145/3731715.3733263" target="_blank">View Paper</a>
-            </div> -->
+
+            <div class="work-stack">
+              <span class="work-stack-label">Stack</span>
+              <div class="work-tags">
+                <span>Research Intern</span><span>Data Processing</span><span>Data
+                  Annotation</span><span>Teamwork</span><span>Research & Paper Publication</span><span>RAG</span><span>QA
+                  Systems</span><span>NLP</span>
+              </div>
             </div>
           </div>
         </article>
