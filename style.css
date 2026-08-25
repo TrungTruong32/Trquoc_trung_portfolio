@@ -704,10 +704,10 @@ section {
   display: flex;
 }
 
-/* Bound the card height so ~3 fit within one screen; long cards scroll internally.
-   clamp: never below 460px, tracks 74% of viewport height, capped at 660px. */
+/* Bound the card height so it fills most of one screen; long cards scroll internally.
+   clamp: never below 520px, tracks 85% of viewport height, capped at 780px. */
 .work-swiper .work-card {
-  height: clamp(460px, 74vh, 660px);
+  height: clamp(520px, 85vh, 780px);
   align-items: stretch;   /* override the mobile align-items:center so body stays full-width */
 }
 
