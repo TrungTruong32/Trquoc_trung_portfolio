@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Hiểu đúng về AI: vì sao mô hình ngôn ngữ đoán chữ theo xác suất, khi nào nó sai, và cách dùng đúng." />
+<title>Hiểu đúng về AI</title>
+<link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="./article.css" />
+</head>
+<body class="lang-vi">
+
+<nav class="backnav" aria-label="Điều hướng">
+  <a href="./index.html"><span class="arw">←</span> Blog</a>
+  <a class="sec" href="../index.html">Portfolio</a>
+</nav>
+
+<div class="langbar">
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" class="b-vi" data-lang="vi">VI</button>
+    <button type="button" class="b-en" data-lang="en">EN</button>
+  </div>
+</div>
+
+<button class="toggle" id="themeBtn" aria-label="Đổi giao diện sáng/tối" type="button">
+  <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+</button>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker" data-lng="vi">Ghi chép &nbsp;/&nbsp; <b>AI · Kiến thức nền</b></p>
+    <p class="kicker" data-lng="en">Notes &nbsp;/&nbsp; <b>AI · Foundations</b></p>
+    <h1 class="title" data-lng="vi">Hiểu đúng về AI và <em>làm chủ</em> AI trong công việc</h1>
+    <h1 class="title" data-lng="en">Understand AI properly and <em>master</em> it at work</h1>
+    <p class="lede" data-lng="vi">Một mô hình ngôn ngữ lớn không tra cứu sự thật — nó đoán chữ tiếp theo theo xác suất. Hiểu điều đó là chìa khoá để dùng AI đúng việc, đúng cách.</p>
+    <p class="lede" data-lng="en">A large language model does not look up facts — it predicts the next word by probability. Grasping that is the key to using AI for the right job, the right way.</p>
+
+    <div class="meta-row">
+      <span class="chip"><span class="dot"></span>08/2026</span>
+      <span class="chip"><span data-lng="vi">~8 phút đọc</span><span data-lng="en">~8 min read</span></span>
+      <span class="chip"><span data-lng="vi">AI · Kiến thức</span><span data-lng="en">AI · Knowledge</span></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Mục lục">
+    <p class="toc-h"><span data-lng="vi">Mục lục</span><span data-lng="en">Contents</span></p>
+    <ol>
+      <li><a href="#p1"><span data-lng="vi">AI thật ra đang làm gì</span><span data-lng="en">What AI is really doing</span></a></li>
+      <li><a href="#p2"><span data-lng="vi">Vì sao AI hay sai</span><span data-lng="en">Why AI gets it wrong</span></a></li>
+      <li><a href="#p3"><span data-lng="vi">Token = chi phí</span><span data-lng="en">Token = cost</span></a></li>
+      <li><a href="#p4"><span data-lng="vi">Dùng AI đúng cách</span><span data-lng="en">Using AI the right way</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <!-- 1 -->
+    <section class="part" id="p1">
+      <div class="part-head">
+        <span class="part-num">01</span>
+        <h2 data-lng="vi">AI thật ra đang làm gì?</h2>
+        <h2 data-lng="en">What is AI really doing?</h2>
+        <p class="part-sub" data-lng="vi">AI đã len vào công việc thường ngày, nhưng nút thắt của giá trị không nằm ở công nghệ — mà ở chỗ ta có hiểu nó đang làm gì hay không.</p>
+        <p class="part-sub" data-lng="en">AI has crept into everyday work, but the bottleneck to value is not the technology — it is whether we understand what it is actually doing.</p>
+      </div>
+      <div class="body">
+        <p data-lng="vi">AI có mặt khắp nơi: <em>Grab</em> đoán nhu cầu và chỉnh giá cước, <em>Shopee</em> gợi ý sản phẩm trước khi bạn kịp tìm, <em>TikTok</em> xếp video theo hành vi xem. Nhưng <b>dùng được</b> AI và <b>hiểu</b> AI là hai chuyện khác nhau — và phần lớn rắc rối đến từ khoảng cách đó.</p>
+        <p data-lng="en">AI is everywhere: <em>Grab</em> predicts demand and adjusts fares, <em>Shopee</em> recommends products before you even search, <em>TikTok</em> ranks videos by your viewing behavior. But <b>being able to use</b> AI and <b>understanding</b> AI are two different things — and most of the trouble comes from that gap.</p>
+
+        <h3 data-lng="vi">AI, ML, DL, GenAI — bốn vòng tròn lồng nhau</h3>
+        <h3 data-lng="en">AI, ML, DL, GenAI — four nested circles</h3>
+        <p data-lng="vi">Bốn thuật ngữ hay bị dùng lẫn, thực ra lồng vào nhau từ rộng đến hẹp:</p>
+        <p data-lng="en">Four terms often used interchangeably actually nest inside one another, from broad to narrow:</p>
+        <div class="ladder">
+          <div class="row"><span class="lbl">AI</span><span class="txt"><span data-lng="vi"><b>Trí tuệ nhân tạo</b> — máy làm việc vốn đòi hỏi trí tuệ con người.</span><span data-lng="en"><b>Artificial Intelligence</b> — machines doing work that once required human intelligence.</span></span></div>
+          <div class="row"><span class="lbl">ML</span><span class="txt"><span data-lng="vi"><b>Học máy</b> — mô hình tự học quy luật từ dữ liệu.</span><span data-lng="en"><b>Machine Learning</b> — models that learn patterns from data on their own.</span></span></div>
+          <div class="row"><span class="lbl">DL</span><span class="txt"><span data-lng="vi"><b>Học sâu</b> — tín hiệu truyền qua nhiều lớp nơ-ron xếp chồng.</span><span data-lng="en"><b>Deep Learning</b> — signals passing through many stacked layers of neurons.</span></span></div>
+          <div class="row"><span class="lbl">GenAI</span><span class="txt"><span data-lng="vi"><b>AI tạo sinh (LLM)</b> — tạo nội dung mới, từng token một, theo ngữ cảnh.</span><span data-lng="en"><b>Generative AI (LLM)</b> — creating new content, one token at a time, from context.</span></span></div>
+        </div>
+
+        <h3 data-lng="vi">LLM là một cỗ máy "nối từ"</h3>
+        <h3 data-lng="en">An LLM is a "word-chaining" machine</h3>
+        <p data-lng="vi">Giống trò nối từ, nhưng thay vì chỉ nhìn chữ cuối, LLM <b>đọc cả câu</b> rồi đoán chữ tiếp theo (<span class="term">next-word prediction</span>). Nó xét hàng nghìn từ và chọn từ có <b>xác suất cao nhất</b> — chứ không tra cứu, không thật sự "biết", và không tự xác minh đúng sai. Đó chính là gốc rễ của <em>ảo giác (hallucination)</em>.</p>
+        <p data-lng="en">Like a word-chain game, but instead of looking only at the last word, an LLM <b>reads the whole sentence</b> and predicts the next word (<span class="term">next-word prediction</span>). It weighs thousands of words and picks the one with the <b>highest probability</b> — it does not look things up, does not truly "know," and does not verify itself. That is the root of <em>hallucination</em>.</p>
+        <div class="refrain">
+          <span class="rk"><span data-lng="vi">Điệp khúc</span><span data-lng="en">Refrain</span></span>
+          <p><span data-lng="vi">AI đoán chữ tiếp theo, rồi <em>khẳng định dù sai</em>.</span><span data-lng="en">AI predicts the next word, then <em>asserts it even when wrong</em>.</span></p>
+        </div>
+
+        <div class="note">
+          <div class="nk"><span data-lng="vi">Một chút lịch sử</span><span data-lng="en">A bit of history</span></div>
+          <p><span data-lng="vi">AI không mới: thuật ngữ ra đời năm <b>1956</b>, và kỳ vọng đã hai lần sụp đổ ("mùa đông AI" 1974 và 1987). Bước ngoặt là <b>ChatGPT (11/2022)</b> — lần đầu ai cũng trò chuyện được với một LLM. Đầu tư AI năm 2025 tăng <b>hơn 2 lần</b> so với 2024, nhưng khả năng thực tế vẫn cần thời gian kiểm chứng — không phải khoản đặt cược nào cũng sinh lời.</span><span data-lng="en">AI is not new: the term was coined in <b>1956</b>, and expectations have collapsed twice (the "AI winters" of 1974 and 1987). The turning point was <b>ChatGPT (Nov 2022)</b> — the first time anyone could chat with an LLM. AI investment in 2025 grew <b>more than 2×</b> over 2024, but real-world capability still needs time to be proven — not every bet pays off.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="part" id="p2">
+      <div class="part-head">
+        <span class="part-num">02</span>
+        <h2 data-lng="vi">Vì sao AI hay sai?</h2>
+        <h2 data-lng="en">Why does AI get it wrong?</h2>
+        <p class="part-sub" data-lng="vi">Mỗi bước tạo ra một LLM cũng là một chỗ để sai lệch lọt vào. Có bốn nguồn chính.</p>
+        <p class="part-sub" data-lng="en">Every step in building an LLM is also a place where error can slip in. There are four main sources.</p>
+      </div>
+      <div class="body">
+        <ul class="clean">
+          <li data-lng="vi"><b>Dữ liệu thiên kiến</b> — ai chọn dữ liệu, người đó chọn góc nhìn. Nhóm, quốc gia hay văn hoá nào ít hiện diện trong dữ liệu thì mô hình hiểu kém chính xác hơn.</li>
+          <li data-lng="en"><b>Biased data</b> — whoever chooses the data chooses the perspective. Any group, country, or culture that is under-represented in the data is understood less accurately by the model.</li>
+          <li data-lng="vi"><b>Hộp đen</b> — không ai kiểm soát hết quá trình bên trong. Một mô hình "phân biệt sói và husky" hoá ra chỉ nhận ra <em>tuyết trong nền ảnh</em>, không phải con vật.</li>
+          <li data-lng="en"><b>Black box</b> — no one fully controls the internal process. A model that "tells wolves from huskies" turned out to be recognizing <em>the snow in the background</em>, not the animal.</li>
+          <li data-lng="vi"><b>Guardrail là do con người</b> — rào chắn, thiên kiến, thậm chí kiểm duyệt đều do người huấn luyện đặt vào. Gemini từng ép yếu tố đa dạng đến mức vẽ ra một "Thượng viện Mỹ thế kỷ 19" chưa từng tồn tại.</li>
+          <li data-lng="en"><b>Guardrails are human-made</b> — the barriers, biases, even censorship are all put in place by the people who train the model. Gemini once pushed diversity so hard that it drew a "19th-century US Senate" that never existed.</li>
+          <li data-lng="vi"><b>Xác suất ≠ sự thật</b> — mô hình chọn chữ theo xác suất, nên luôn trả lời trôi chảy kể cả khi đang bịa.</li>
+          <li data-lng="en"><b>Probability ≠ truth</b> — the model picks words by probability, so it always answers fluently even when it is making things up.</li>
+        </ul>
+
+        <div class="note">
+          <div class="nk"><span data-lng="vi">Hai giới hạn luôn có của dữ liệu</span><span data-lng="en">Two limits data always has</span></div>
+          <p><span data-lng="vi"><b>Knowledge cutoff</b> — dữ liệu huấn luyện dừng ở một mốc thời gian; sự kiện sau đó mô hình không biết. <b>Dữ liệu nội bộ</b> — hồ sơ riêng của doanh nghiệp chưa từng nằm trong dữ liệu huấn luyện của bất kỳ mô hình nào, dù mới đến đâu.</span><span data-lng="en"><b>Knowledge cutoff</b> — training data stops at a point in time; the model does not know events after it. <b>Internal data</b> — a company's private records were never part of any model's training data, no matter how new the model is.</span></p>
+        </div>
+
+        <div class="refrain">
+          <span class="rk">Mata v. Avianca · 2023</span>
+          <p><span data-lng="vi">Luật sư ở New York dùng ChatGPT soạn hồ sơ và trích <em>sáu án lệ do AI bịa ra</em>. Toà không tìm thấy án nào; hai luật sư bị phạt. <b>Hậu quả là thật.</b></span><span data-lng="en">A New York lawyer used ChatGPT to draft a filing and cited <em>six cases the AI invented</em>. The court found none of them; two lawyers were sanctioned. <b>The consequences were real.</b></span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="part" id="p3">
+      <div class="part-head">
+        <span class="part-num">03</span>
+        <h2 data-lng="vi">Token — đơn vị AI nhìn thấy và tính tiền</h2>
+        <h2 data-lng="en">Token — the unit AI sees and bills by</h2>
+        <p class="part-sub" data-lng="vi">Trước khi đoán, LLM cắt câu thành những mảnh nhỏ gọi là token. Đây vừa là thứ nó "nhìn thấy", vừa là đơn vị chi phí.</p>
+        <p class="part-sub" data-lng="en">Before predicting, an LLM chops a sentence into small pieces called tokens. This is both what it "sees" and the unit of cost.</p>
+      </div>
+      <div class="body">
+        <p data-lng="vi">Với máy tính, mỗi <span class="term">token</span> chỉ là <b>một con số (ID)</b> — không phải mặt chữ. Chính vì "nhìn" bằng token chứ không phải bằng chữ cái, nó vấp phải loạt lỗi "ngớ ngẩn" nổi tiếng:</p>
+        <p data-lng="en">To a computer, each <span class="term">token</span> is just <b>a number (an ID)</b> — not the letters themselves. Because it "sees" by token rather than by character, it stumbles on a famous set of "silly" errors:</p>
+        <div class="cards three">
+          <div class="card"><p class="ct">🍓 strawberry</p><p><span data-lng="vi">"Có mấy chữ r?" — AI cắt thành <span class="mono">st · raw · berry</span> nên đếm nhầm. Nó xử lý mảnh token, không đếm chữ cái.</span><span data-lng="en">"How many r's?" — the AI splits it into <span class="mono">st · raw · berry</span> and miscounts. It processes token pieces, not individual letters.</span></p></div>
+          <div class="card"><p class="ct">9.11 vs 9.8</p><p><span data-lng="vi">Mô hình đọc ".11" như số phiên bản nên thấy "lớn hơn" .8, dù về thập phân 9.80 &gt; 9.11.</span><span data-lng="en">The model reads ".11" like a version number and thinks it is "bigger" than .8, even though as decimals 9.80 &gt; 9.11.</span></p></div>
+          <div class="card"><p class="ct">3782 × 4219</p><p><span data-lng="vi">Trả lời trông rất thuyết phục nhưng sai — phép nhân với nó cũng chỉ là "đoán chữ tiếp theo".</span><span data-lng="en">The answer looks convincing but is wrong — for the model, multiplication is also just "predicting the next word."</span></p></div>
+        </div>
+        <div class="note">
+          <div class="nk"><span data-lng="vi">Token = chi phí</span><span data-lng="en">Token = cost</span></div>
+          <p><span data-lng="vi">Token là đơn vị của LLM, cũng là đơn vị tính tiền: thêm một token là thêm chi phí. Cùng nội dung, <b>tiếng Việt thường tốn nhiều token hơn tiếng Anh</b> ("URGENT REPORT" = 3 token; "BÁO CÁO KHẨN CẤP" = 12 token), và <b>VIẾT HOA gần gấp đôi</b> chi phí so với viết thường.</span><span data-lng="en">The token is the LLM's unit — and also the billing unit: one more token is one more bit of cost. For the same content, <b>Vietnamese usually costs more tokens than English</b> ("URGENT REPORT" = 3 tokens; "BÁO CÁO KHẨN CẤP" = 12 tokens), and <b>ALL CAPS costs nearly double</b> compared with lowercase.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="part" id="p4">
+      <div class="part-head">
+        <span class="part-num">04</span>
+        <h2 data-lng="vi">Dùng AI đúng cách</h2>
+        <h2 data-lng="en">Using AI the right way</h2>
+        <p class="part-sub" data-lng="vi">Hiểu cơ chế rồi, phần còn lại là kỹ năng: chọn đúng mô hình, ra yêu cầu rõ, quản ngữ cảnh như quản chi phí, và luôn kiểm chứng.</p>
+        <p class="part-sub" data-lng="en">Once you understand the mechanism, the rest is skill: pick the right model, state clear requests, manage context like you manage cost, and always verify.</p>
+      </div>
+      <div class="body">
+        <h3 data-lng="vi">Chọn đúng mô hình cho đúng việc</h3>
+        <h3 data-lng="en">Pick the right model for the right job</h3>
+        <p data-lng="vi">Có thể xem các mô hình như nhân sự với "mức lương" khác nhau:</p>
+        <p data-lng="en">You can think of the models as staff with different "salaries":</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr>
+              <th>Model</th>
+              <th><span data-lng="vi">Ví như</span><span data-lng="en">Like a</span></th>
+              <th><span data-lng="vi">Phù hợp</span><span data-lng="en">Best for</span></th>
+              <th><span data-lng="vi">Chi phí</span><span data-lng="en">Cost</span></th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Opus</td><td><b><span data-lng="vi">Quản lý</span><span data-lng="en">Manager</span></b></td><td><span data-lng="vi">Việc phức tạp, nhiều bước, suy luận sâu</span><span data-lng="en">Complex, multi-step work with deep reasoning</span></td><td class="cost">$$$</td></tr>
+              <tr><td>Sonnet</td><td><b><span data-lng="vi">NV lâu năm</span><span data-lng="en">Senior staffer</span></b></td><td><span data-lng="vi">Việc hằng ngày, cân bằng tốc độ &amp; chất lượng</span><span data-lng="en">Everyday work, balancing speed &amp; quality</span></td><td class="cost">$$</td></tr>
+              <tr><td>Haiku</td><td><b><span data-lng="vi">NV mới</span><span data-lng="en">Junior staffer</span></b></td><td><span data-lng="vi">Việc quen, khối lượng lớn, cần nhanh</span><span data-lng="en">Familiar, high-volume work that needs to be fast</span></td><td class="cost">$</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note">
+          <div class="nk"><span data-lng="vi">Mạnh hơn ≠ luôn tốt hơn</span><span data-lng="en">Stronger ≠ always better</span></div>
+          <p><span data-lng="vi">Thuê một mô hình đắt tiền đi làm việc vặt là lãng phí; ngược lại, giao việc khó cho mô hình nhỏ thì kết quả hời hợt. Chọn theo <b>độ khó của việc</b>, chứ không phải cứ vơ lấy "cái mạnh nhất".</span><span data-lng="en">Hiring an expensive model for trivial chores is wasteful; conversely, handing hard work to a small model yields shallow results. Choose by <b>the difficulty of the task</b>, not by grabbing "the strongest one" every time.</span></p>
+        </div>
+
+        <h3 data-lng="vi">Ra yêu cầu rõ (prompt)</h3>
+        <h3 data-lng="en">State a clear request (prompt)</h3>
+        <p data-lng="vi">Một prompt tốt thường đủ năm phần:</p>
+        <p data-lng="en">A good prompt usually has all five parts:</p>
+        <div class="ladder">
+          <div class="row"><span class="lbl"><span data-lng="vi">Vai trò</span><span data-lng="en">Role</span></span><span class="txt"><span data-lng="vi">Bạn muốn AI đóng vai gì (vd: cố vấn chiến lược sản xuất).</span><span data-lng="en">What role you want the AI to play (e.g., a manufacturing strategy advisor).</span></span></div>
+          <div class="row"><span class="lbl"><span data-lng="vi">Ngữ cảnh</span><span data-lng="en">Context</span></span><span class="txt"><span data-lng="vi">Bối cảnh và thông tin nền cần biết.</span><span data-lng="en">The background and supporting information it needs to know.</span></span></div>
+          <div class="row"><span class="lbl"><span data-lng="vi">Yêu cầu</span><span data-lng="en">Request</span></span><span class="txt"><span data-lng="vi">Việc cụ thể cần làm.</span><span data-lng="en">The specific task to be done.</span></span></div>
+          <div class="row"><span class="lbl"><span data-lng="vi">Định dạng</span><span data-lng="en">Format</span></span><span class="txt"><span data-lng="vi">Kết quả trả về thế nào (văn bản, bảng, file).</span><span data-lng="en">How the result should come back (text, table, file).</span></span></div>
+          <div class="row"><span class="lbl"><span data-lng="vi">Ví dụ</span><span data-lng="en">Example</span></span><span class="txt"><span data-lng="vi">Minh hoạ cụ thể nếu cần đúng cấu trúc hay tông giọng.</span><span data-lng="en">A concrete illustration when you need an exact structure or tone.</span></span></div>
+        </div>
+        <p data-lng="vi">Đây là công cụ hỗ trợ, không phải khuôn bắt buộc — câu đơn giản cứ hỏi thẳng. Một mẹo hay là <b>reverse prompting</b>: nhờ chính AI "đặt ra các câu hỏi cần thiết để hoàn thành việc này".</p>
+        <p data-lng="en">This is a helper, not a mandatory template — for simple questions, just ask directly. A handy trick is <b>reverse prompting</b>: ask the AI itself to "list the questions you need answered to complete this task."</p>
+
+        <h3 data-lng="vi">Quản ngữ cảnh là quản chi phí</h3>
+        <h3 data-lng="en">Managing context is managing cost</h3>
+        <p data-lng="vi">Hãy hình dung <span class="term">context</span> như một tờ giấy chứa mọi thông tin AI phải <b>đọc lại mỗi lượt trả lời</b> — và tờ giấy này có giới hạn (Claude tới ~200.000 token, khoảng 500 trang). Vì ngữ cảnh cũng là token, giữ nó gọn chính là giữ chi phí thấp: mở chat mới khi đổi chủ đề, chỉ đưa đúng thông tin cần, tóm tắt rồi mang sang cuộc mới.</p>
+        <p data-lng="en">Picture the <span class="term">context</span> as a sheet of paper holding everything the AI must <b>re-read on every reply</b> — and this sheet has a limit (Claude up to ~200,000 tokens, about 500 pages). Because context is also tokens, keeping it lean is keeping cost low: start a new chat when the topic changes, feed in only what is needed, and summarize before carrying over to a new conversation.</p>
+        <div class="note">
+          <div class="nk"><span data-lng="vi">Luôn kiểm chứng</span><span data-lng="en">Always verify</span></div>
+          <p><span data-lng="vi">AI mở rộng được khả năng qua <b>Connector/MCP</b> (nối Gmail, Drive, hệ thống nội bộ) và tạo <b>Artifact</b> (chương trình, trang web chạy ngay). Nhưng nguồn trên mạng có thể bị thao túng, và <b>prompt injection</b> — lệnh ẩn giấu trong nội dung — là rủi ro thật: AI không tự tách được yêu cầu thật khỏi nội dung trà trộn. Người dùng vẫn phải là chốt kiểm chứng cuối cùng.</span><span data-lng="en">AI can extend its reach through <b>Connector/MCP</b> (linking Gmail, Drive, internal systems) and can produce an <b>Artifact</b> (a program or web page that runs instantly). But online sources can be manipulated, and <b>prompt injection</b> — commands hidden inside content — is a real risk: the AI cannot reliably separate a genuine request from smuggled-in content. The user must remain the final checkpoint.</span></p>
+        </div>
+
+        <div class="refrain" style="background:var(--surface);border-color:var(--line)">
+          <span class="rk" style="color:var(--teal)"><span data-lng="vi">Ghi nhớ</span><span data-lng="en">Remember</span></span>
+          <p style="color:var(--ink)"><span data-lng="vi">AI không "biết" — nó đoán chữ theo xác suất. Dùng đúng cách nghĩa là: chọn đúng mô hình, quản ngữ cảnh như quản chi phí, và luôn kiểm chứng vì <em style="color:var(--navy)">AI có thể tự tin ngay cả khi sai</em>.</span><span data-lng="en">AI does not "know" — it predicts words by probability. Using it well means: pick the right model, manage context like cost, and always verify, because <em style="color:var(--navy)">AI can be confident even when it is wrong</em>.</span></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="foot-in">
+    <span><span data-lng="vi">Ghi chép về AI · <a href="./index.html">Blog của Trung Truong</a></span><span data-lng="en">Notes on AI · <a href="./index.html">Trung Truong's Blog</a></span></span>
+    <span class="mono"><span data-lng="vi">AI không "biết" — nó đoán chữ theo xác suất.</span><span data-lng="en">AI does not "know" — it predicts words by probability.</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  var KEY='tt-blog-theme';
+  try{var s=localStorage.getItem(KEY); if(s){root.setAttribute('data-theme',s);}}catch(e){}
+  function cur(){
+    var a=root.getAttribute('data-theme');
+    if(a) return a;
+    return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+  }
+  btn.addEventListener('click',function(){
+    var next=cur()==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem(KEY,next);}catch(e){}
+  });
+
+  var LKEY='tt-blog-lang', bodyEl=document.body;
+  function setLang(l){ bodyEl.classList.remove('lang-vi','lang-en'); bodyEl.classList.add('lang-'+l); document.documentElement.setAttribute('lang',l); try{localStorage.setItem(LKEY,l);}catch(e){} }
+  try{var sl=localStorage.getItem(LKEY); if(sl){setLang(sl);}}catch(e){}
+  [].forEach.call(document.querySelectorAll('.lang button'),function(b){ b.addEventListener('click',function(){ setLang(b.getAttribute('data-lang')); }); });
+
+  // scroll-spy for the sticky TOC
+  var links=[].slice.call(document.querySelectorAll('nav.toc a'));
+  var map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var secs=[].slice.call(document.querySelectorAll('section.part'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(ents){
+      ents.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){l.classList.remove('active');});
+          var m=map[en.target.id]; if(m) m.classList.add('active');
+        }
+      });
+    },{rootMargin:'-15% 0px -70% 0px',threshold:0});
+    secs.forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+</body>
+</html>

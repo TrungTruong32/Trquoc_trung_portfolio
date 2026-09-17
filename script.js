@@ -185,12 +185,15 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 });
 
-// Smooth scroll khi click vào navbar
+// Smooth scroll khi click vào navbar — chỉ áp dụng cho link anchor cùng trang (#...).
+// Link tới trang khác (vd ./blog/index.html) để trình duyệt điều hướng bình thường.
 document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
+    const href = this.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;   // để link ngoài/trang khác hoạt động
+    const target = document.querySelector(href);
     if (target) {
+      e.preventDefault();
       target.scrollIntoView({
         behavior: "smooth",
         block: "start"
