@@ -91,13 +91,12 @@ if (hero) heroObserver.observe(hero);
 
 // ==== Back-to-top ====  
 const backBtn = document.getElementById("back-to-top");
+const deckBtn = document.getElementById("to-deck");
 if (backBtn) {
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backBtn.classList.add("show");
-    } else {
-      backBtn.classList.remove("show");
-    }
+    const show = window.scrollY > 300;
+    backBtn.classList.toggle("show", show);
+    deckBtn?.classList.toggle("show", show);
   });
 
   backBtn.addEventListener("click", () => {

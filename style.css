@@ -1415,6 +1415,43 @@ section {
   visibility: visible;
 }
 
+/* Presentation shortcut - stacked above Back to Top */
+#to-deck {
+  position: fixed;
+  bottom: 76px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-2);
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.3s ease, background 0.2s ease, color 0.2s ease;
+  z-index: 1000;
+}
+
+#to-deck:hover,
+#to-deck:focus-visible {
+  background: var(--gold);
+  color: #000;
+}
+
+#to-deck.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 
 /* ---------- EXTRA ---------- */
