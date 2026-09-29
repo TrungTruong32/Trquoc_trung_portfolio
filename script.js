@@ -1,5 +1,5 @@
 /* ---------------- TYPING EFFECT ---------------- */
-const roles = ["Fullstack Developer.", "Data & Business Analyst.", "AI Engineer."];
+const roles = ["an AI Engineer.", "a Data Engineer.", "a Fullstack Developer."];
 let roleIdx = 0, charIdx = 0, deleting = false;
 const typingEl = document.getElementById("typing");
 
@@ -240,6 +240,87 @@ menuBtn.addEventListener("click", () => {
 document.querySelectorAll(".nav-links a").forEach(link => {
   link.addEventListener("click", () => {
     navMenu.classList.remove("active");
+  });
+});
+
+
+
+/* ---------------- WORK PROJECTS — accordion + detail modal ---------------- */
+document.addEventListener("DOMContentLoaded", function () {
+  // Accordion: one project open at a time within each company card
+  document.querySelectorAll(".work-projects").forEach(group => {
+    const items = Array.from(group.querySelectorAll(".wp-item"));
+    // Open the first project by default so the card isn't bare
+    if (items[0]) {
+      items[0].classList.add("open");
+      const h0 = items[0].querySelector(".wp-head");
+      if (h0) h0.setAttribute("aria-expanded", "true");
+    }
+    group.querySelectorAll(".wp-head").forEach(head => {
+      const toggle = () => {
+        const item = head.closest(".wp-item");
+        const willOpen = !item.classList.contains("open");
+        items.forEach(it => {
+          it.classList.remove("open");
+          const h = it.querySelector(".wp-head");
+          if (h) h.setAttribute("aria-expanded", "false");
+        });
+        if (willOpen) {
+          item.classList.add("open");
+          head.setAttribute("aria-expanded", "true");
+        }
+      };
+      // Click anywhere on the row toggles — except on the eye (detail) button
+      head.addEventListener("click", e => {
+        if (e.target.closest(".wp-eye")) return;
+        toggle();
+      });
+      // Keyboard support for the div-based toggle (Enter / Space)
+      head.addEventListener("keydown", e => {
+        if (e.target.closest(".wp-eye")) return;
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggle(); }
+      });
+    });
+  });
+
+  // Detail modal (reuses each project's hidden .wp-full content)
+  const modal = document.getElementById("work-modal");
+  if (!modal) return;
+  const body = document.getElementById("work-modal-body");
+  const title = document.getElementById("work-modal-title");
+  let lastFocus = null;
+
+  const openModal = (name, html) => {
+    title.textContent = name;
+    body.innerHTML = html;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeBtn = modal.querySelector(".work-modal-close");
+    if (closeBtn) closeBtn.focus();
+  };
+  const closeModal = () => {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  };
+
+  document.querySelectorAll(".wp-eye").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.stopPropagation();
+      const item = btn.closest(".wp-item");
+      const nameEl = item.querySelector(".wp-name");
+      const name = nameEl ? nameEl.textContent.trim() : "Project detail";
+      const full = item.querySelector(".wp-full");
+      lastFocus = btn;
+      openModal(name, full ? full.innerHTML : "");
+    });
+  });
+
+  modal.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeModal));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
   });
 });
 

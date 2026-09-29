@@ -603,6 +603,20 @@ section {
 .work-project-title a { color: var(--gold); text-decoration: underline; }
 .work-project-title a:hover { color: #ffdd55; }
 
+/* One-line scope summary at the top of a work card */
+.work-summary {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--muted);
+  padding: 8px 12px;
+  margin: 2px 0 4px;
+  border-left: 2px solid var(--cyan);
+  background: rgba(56, 225, 255, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+.work-summary strong { color: var(--gold); }
+
 /* Subtitle */
 /* Role on one line, time period on the next */
 .work-role {
@@ -782,7 +796,7 @@ section {
 
 .work-stack .work-tags {
   margin-top: 0;
-  max-height: 160px;
+  max-height: 190px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 213, 74, 0.35) transparent;
@@ -792,6 +806,203 @@ section {
 .work-stack .work-tags::-webkit-scrollbar-thumb {
   background: rgba(255, 213, 74, 0.28);
   border-radius: 8px;
+}
+
+/* ============================================================
+   WORK PROJECTS — accordion rows + detail modal
+   ============================================================ */
+.work-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.wp-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--glass);
+  overflow: hidden;
+  transition: border-color .2s, background .2s;
+}
+.wp-item:hover { border-color: rgba(255, 213, 74, .28); }
+.wp-item.open { border-color: rgba(255, 213, 74, .4); }
+
+/* Header (clickable) */
+.wp-head {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 16px;
+  cursor: pointer;
+}
+.wp-head:focus-visible { outline: 2px solid var(--cyan); outline-offset: -2px; border-radius: 12px; }
+
+/* Right-side controls: eye pinned top (level with the name), chevron at bottom */
+.wp-controls {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.wp-eye {
+  flex-shrink: 0;
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--cyan);
+  background: rgba(56, 225, 255, .08);
+  border: 1px solid rgba(56, 225, 255, .2);
+  transition: background .2s, color .2s, transform .2s;
+}
+.wp-eye svg { width: 15px; height: 15px; }
+.wp-eye:hover { background: rgba(56, 225, 255, .18); color: #bff4ff; transform: translateY(-1px); }
+.wp-eye:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.wp-headtext { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.wp-name { font-weight: 600; font-size: 1rem; color: var(--gold); line-height: 1.25; }
+.wp-tagline { font-family: var(--mono); font-size: .76rem; color: var(--muted); }
+
+.wp-chevron {
+  flex-shrink: 0;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--cyan);
+  border-bottom: 2px solid var(--cyan);
+  transform: rotate(45deg);
+  transition: transform .3s ease;
+  margin: 0 0 3px;
+}
+.wp-item.open .wp-chevron { transform: rotate(225deg); }
+
+/* Collapsible panel */
+.wp-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+}
+.wp-item.open .wp-panel { max-height: 420px; }
+
+.wp-panel-inner { padding: 0 16px 15px; }
+.wp-summary {
+  color: #d7dcf5;
+  font-size: .92rem;
+  line-height: 1.55;
+  margin: 2px 0 12px;
+}
+.wp-summary strong { color: var(--gold); }
+
+.wp-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.wp-more {
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 9px;
+  color: #05060d;
+  background: linear-gradient(120deg, var(--gold), var(--gold-2));
+  border: 0;
+  transition: transform .2s, box-shadow .2s;
+}
+.wp-more:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255, 213, 74, .25); }
+.wp-more:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.wp-link {
+  font-family: var(--mono);
+  font-size: .78rem;
+  text-decoration: none;
+  color: var(--cyan);
+  padding: 8px 12px;
+  border-radius: 9px;
+  border: 1px solid rgba(56, 225, 255, .25);
+  background: rgba(56, 225, 255, .06);
+  transition: .2s;
+}
+.wp-link:hover { background: rgba(56, 225, 255, .16); }
+
+/* ---------- Detail modal ---------- */
+.work-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.work-modal.open { display: flex; }
+.work-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 5, 12, .72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.work-modal-box {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 100%);
+  max-height: 82vh;
+  overflow-y: auto;
+  background: rgba(16, 20, 38, .92);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--glow);
+  padding: 26px 26px 24px;
+  animation: wpModalIn .28s cubic-bezier(.2, .7, .2, 1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 213, 74, .35) transparent;
+}
+@keyframes wpModalIn {
+  from { opacity: 0; transform: translateY(16px) scale(.98); }
+  to { opacity: 1; transform: none; }
+}
+.work-modal-eyebrow {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+.work-modal-title {
+  color: var(--gold);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 40px 16px 0;
+  line-height: 1.25;
+}
+.work-modal-body .work-list { margin-top: 0; }
+.work-modal-body .work-list li { margin-bottom: 12px; font-size: .96rem; }
+.work-modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 38px; height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  color: var(--ink);
+  background: var(--glass);
+  border: 1px solid var(--line);
+  transition: .2s;
+}
+.work-modal-close:hover { background: var(--glass-2); color: var(--gold); }
+.work-modal-close:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wp-panel, .wp-chevron, .work-modal-box { transition: none; animation: none; }
 }
 
 /* ---------- PROJECTS ---------- */
