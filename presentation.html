@@ -1278,6 +1278,16 @@
       }
     }
 
+    /* Phones: mark-only brand, no keyboard hints, keep slide content clear of the fixed bars */
+    @media (max-width: 600px) {
+      .brand-tag { font-size: 0; }
+      .brand-tag .brand-mark { height: 24px; margin: 0; vertical-align: middle; }
+      .hint { display: none; }
+      .topbar { left: 16px; right: 16px; top: 14px; }
+      .hud { right: 16px; bottom: 16px; }
+      .slide { padding: 72px 20px 84px; }
+    }
+
     @media (max-width: 900px) {
 
       .cover,

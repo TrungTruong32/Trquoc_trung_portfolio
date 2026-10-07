@@ -278,4 +278,8 @@ footer{border-top:1px solid var(--line);margin-top:60px}
 @media(max-width:1039px){
   body{font-size:16px}
   section.part{padding:44px 0 4px}
+  .layout{padding:0 clamp(18px,4vw,40px)} /* sidebar grid is off: keep side gutters */
+}
+@media(max-width:640px){
+  .hero-inner{padding-top:84px} /* clear the fixed back/theme buttons */
 }
