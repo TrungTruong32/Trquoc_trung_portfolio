@@ -800,10 +800,16 @@ section {
 
 .work-stack .work-tags {
   margin-top: 0;
-  max-height: 190px;
+  /* Fixed (not max) height so the STACK label lines up across cards: ~4 rows of tags; longer lists scroll */
+  height: 156px;
+  align-content: flex-start;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(212,175,55,0.35) transparent;
+}
+
+@media (max-width: 1199px) {
+  .work-stack .work-tags { height: 196px; } /* narrower cards wrap tags into more rows */
 }
 
 .work-stack .work-tags::-webkit-scrollbar { width: 6px; }
