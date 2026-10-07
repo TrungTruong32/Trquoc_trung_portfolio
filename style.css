@@ -1377,6 +1377,7 @@ section {
 @media (max-width:980px){
   .hero-grid{grid-template-columns:1fr; text-align:center}
   .avatar-wrap{margin-inline:auto} /* center avatar when hero stacks to 1 column */
+  .hero-cta{justify-content:center} /* match the centered hero text */
   .skillset-grid{grid-template-columns:repeat(2, 1fr)}
   .resume-pair{grid-template-columns:1fr}
   .work-card{grid-template-columns:1fr;align-items:center}
@@ -1387,6 +1388,9 @@ section {
 @media (max-width:640px){
   .skillset-grid{grid-template-columns:1fr; max-width:500px; margin-left:auto; margin-right:auto}
   .contact-grid{grid-template-columns:1fr}
+  /* 2x2 grid of equal-width buttons instead of a ragged wrap */
+  .hero-cta{display:grid;grid-template-columns:1fr 1fr;max-width:420px;margin-inline:auto}
+  .hero-cta .btn{justify-content:center;padding-inline:10px}
 }
 
 @media (min-width:1200px){
