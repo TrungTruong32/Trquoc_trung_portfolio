@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", tick);
 
       // draw glow particle
       const grad = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, d.r * 4);
-      grad.addColorStop(0, `rgba(255,213,74,${d.alpha})`);
-      grad.addColorStop(0.4, `rgba(255,238,0,${d.alpha * 0.3})`);
-      grad.addColorStop(1, "rgba(240, 225, 23, 0)");
+      grad.addColorStop(0, `rgba(212,175,55,${d.alpha})`);
+      grad.addColorStop(0.4, `rgba(241,215,122,${d.alpha * 0.3})`);
+      grad.addColorStop(1, "rgba(212,175,55,0)");
 
       ctx.fillStyle = grad;
       ctx.beginPath();

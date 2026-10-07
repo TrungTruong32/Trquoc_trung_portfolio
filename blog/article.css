@@ -2,42 +2,46 @@
    Blog article design system — editorial world (shared by all posts)
    Tokens & components ported from the original ai-theory-a1.html.
    =================================================================== */
+@import url("../brand/tokens.css");
 :root{
-  --paper:#eef1f8; --surface:#ffffff; --surface-2:#f6f8fc;
-  --ink:#151f38; --ink-2:#4b566f; --ink-3:#8590a6;
-  --line:#dde3ef; --line-2:#eaeef6;
-  --navy:#224099; --navy-2:#2f5597; --navy-deep:#16264f;
-  --teal:#0b8f9e; --teal-bright:#0ea5b5;
-  --rust:#b4531f; --rust-soft:#fbeee6;
-  --gold:#a9761a;
-  --sel:#cfe0ff;
+  --paper:var(--tt-light); --surface:var(--tt-white); --surface-2:color-mix(in srgb,var(--tt-light) 45%,var(--tt-white));
+  --ink:var(--tt-dark); --ink-2:var(--tt-ink-gray); --ink-3:color-mix(in srgb,var(--tt-ink-gray) 85%,var(--tt-light));
+  --line:color-mix(in srgb,var(--tt-dark) 13%,var(--tt-white)); --line-2:color-mix(in srgb,var(--tt-dark) 7%,var(--tt-white));
+  --navy:var(--tt-aubergine); --navy-2:#7A4A5A; --navy-deep:#2A0F38;
+  --teal:var(--tt-gold-deep); --teal-bright:var(--tt-primary);
+  --rust:#7A4A5A; --rust-soft:color-mix(in srgb,#7A4A5A 9%,var(--tt-white));
+  --gold:var(--tt-gold-deep);
+  --sel:var(--tt-accent);
+  --on-navy:var(--tt-white);
   --r:14px; --r-sm:9px;
-  --shadow:0 1px 2px rgba(20,30,60,.05), 0 8px 30px rgba(20,30,60,.06);
+  --shadow:0 1px 2px rgba(20,11,25,.05), 0 8px 30px rgba(20,11,25,.06);
   --maxw:44rem;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --paper:#0a1120; --surface:#101a30; --surface-2:#0e1728;
-    --ink:#e9edf6; --ink-2:#a6b1c8; --ink-3:#6a7690;
-    --line:#233150; --line-2:#1a263f;
-    --navy:#7a9bef; --navy-2:#6d8fe6; --navy-deep:#c3d3ff;
-    --teal:#2bc7d6; --teal-bright:#3ad3e2;
-    --rust:#f0865a; --rust-soft:#2a1a12;
-    --gold:#d8a94a;
-    --sel:#22345c;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.34);
+    --paper:var(--tt-dark); --surface:var(--tt-navy); --surface-2:color-mix(in srgb,var(--tt-navy) 55%,var(--tt-dark));
+  --ink:var(--tt-light); --ink-2:var(--tt-muted); --ink-3:var(--tt-gray);
+  --line:color-mix(in srgb,var(--tt-light) 14%,var(--tt-navy)); --line-2:color-mix(in srgb,var(--tt-light) 8%,var(--tt-navy));
+  --navy:var(--tt-secondary); --navy-2:var(--tt-primary); --navy-deep:var(--tt-accent);
+  --teal:var(--tt-primary); --teal-bright:var(--tt-secondary);
+  --rust:var(--tt-accent); --rust-soft:color-mix(in srgb,var(--tt-aubergine) 55%,var(--tt-dark));
+  --gold:var(--tt-primary);
+  --sel:var(--tt-aubergine);
+  --on-navy:var(--tt-dark);
+    --shadow:0 1px 2px rgba(20,11,25,.3), 0 10px 34px rgba(20,11,25,.34);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0a1120; --surface:#101a30; --surface-2:#0e1728;
-  --ink:#e9edf6; --ink-2:#a6b1c8; --ink-3:#6a7690;
-  --line:#233150; --line-2:#1a263f;
-  --navy:#7a9bef; --navy-2:#6d8fe6; --navy-deep:#c3d3ff;
-  --teal:#2bc7d6; --teal-bright:#3ad3e2;
-  --rust:#f0865a; --rust-soft:#2a1a12;
-  --gold:#d8a94a;
-  --sel:#22345c;
-  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.34);
+  --paper:var(--tt-dark); --surface:var(--tt-navy); --surface-2:color-mix(in srgb,var(--tt-navy) 55%,var(--tt-dark));
+  --ink:var(--tt-light); --ink-2:var(--tt-muted); --ink-3:var(--tt-gray);
+  --line:color-mix(in srgb,var(--tt-light) 14%,var(--tt-navy)); --line-2:color-mix(in srgb,var(--tt-light) 8%,var(--tt-navy));
+  --navy:var(--tt-secondary); --navy-2:var(--tt-primary); --navy-deep:var(--tt-accent);
+  --teal:var(--tt-primary); --teal-bright:var(--tt-secondary);
+  --rust:var(--tt-accent); --rust-soft:color-mix(in srgb,var(--tt-aubergine) 55%,var(--tt-dark));
+  --gold:var(--tt-primary);
+  --sel:var(--tt-aubergine);
+  --on-navy:var(--tt-dark);
+  --shadow:0 1px 2px rgba(20,11,25,.3), 0 10px 34px rgba(20,11,25,.34);
 }
 
 *{box-sizing:border-box}
@@ -45,7 +49,7 @@ html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:"Be Vietnam Pro",system-ui,-apple-system,sans-serif;
+  font-family:var(--tt-font);
   font-size:17px; line-height:1.68; -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
@@ -54,8 +58,8 @@ body{
 img{max-width:100%}
 
 a{color:var(--teal);text-underline-offset:3px;text-decoration-thickness:1px}
-a:hover{color:var(--teal-bright)}
-:focus-visible{outline:2px solid var(--teal-bright);outline-offset:3px;border-radius:4px}
+a:hover{color:var(--navy-2)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:4px}
 
 /* ---------- shell ---------- */
 .wrap{max-width:74rem;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
@@ -76,7 +80,7 @@ header.hero{position:relative;overflow:hidden;
 .kicker{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.24em;
   text-transform:uppercase;color:var(--teal);font-weight:600;margin:0 0 22px}
 .kicker b{color:var(--navy)}
-h1.title{font-family:"Fraunces",Georgia,serif;font-weight:600;
+h1.title{font-family:var(--tt-font);font-weight:600;
   font-size:clamp(2.5rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.015em;
   margin:0;color:var(--ink);text-wrap:balance;font-optical-sizing:auto}
 h1.title em{font-style:italic;color:var(--navy)}
@@ -139,7 +143,7 @@ nav.toc{display:none}
 .lang button{border:0;background:transparent;color:var(--ink-3);cursor:pointer;padding:0 12px;
   font:inherit;font-weight:600;letter-spacing:.06em;transition:color .15s}
 .lang button:hover{color:var(--ink-2)}
-body.lang-vi .lang .b-vi,body.lang-en .lang .b-en{background:var(--navy);color:#fff}
+body.lang-vi .lang .b-vi,body.lang-en .lang .b-en{background:var(--navy);color:var(--on-navy)}
 
 /* ---------- bilingual mechanism (như blog index / presentation) ---------- */
 body.lang-en [data-lng="vi"]{display:none}
@@ -152,13 +156,13 @@ section.part:first-child{padding-top:44px}
 .part-head{margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--line)}
 .part-num{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.2em;
   color:var(--teal);font-weight:600;text-transform:uppercase}
-h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);
+h2{font-family:var(--tt-font);font-weight:600;font-size:clamp(1.7rem,3.6vw,2.5rem);
   line-height:1.08;letter-spacing:-.01em;margin:10px 0 0;color:var(--ink);text-wrap:balance}
 .part-sub{color:var(--ink-2);margin:12px 0 0;max-width:var(--maxw);font-size:1.02rem}
 
 .body{max-width:var(--maxw)}
 .body p{margin:0 0 18px}
-h3{font-family:"Be Vietnam Pro",sans-serif;font-weight:700;font-size:1.16rem;line-height:1.35;
+h3{font-family:var(--tt-font);font-weight:600;font-size:1.16rem;line-height:1.35;
   letter-spacing:-.005em;margin:38px 0 12px;color:var(--ink);max-width:var(--maxw)}
 h3 .n{font-family:"JetBrains Mono",monospace;font-size:.72em;color:var(--teal);
   font-weight:600;margin-right:10px}
@@ -199,7 +203,7 @@ ul.clean li b{color:var(--ink)}
   padding:18px 20px;box-shadow:var(--shadow)}
 .card .ct{font-weight:700;color:var(--ink);margin:0 0 6px;font-size:1.02rem;display:flex;align-items:center;gap:9px}
 .card .ct .tg{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;
-  text-transform:uppercase;color:#fff;background:var(--navy);padding:2px 7px;border-radius:5px;font-weight:600}
+  text-transform:uppercase;color:var(--on-navy);background:var(--navy);padding:2px 7px;border-radius:5px;font-weight:600}
 .card p{margin:0;color:var(--ink-2);font-size:.94rem;line-height:1.55}
 .card.fail{border-left:3px solid var(--rust)}
 .card.fail .ct .tg{background:var(--rust)}
@@ -238,7 +242,7 @@ tbody td:first-child{font-family:"JetBrains Mono",monospace;color:var(--navy);fo
 /* pull quote / big stat */
 .stat{max-width:var(--maxw);margin:26px 0;display:flex;flex-wrap:wrap;gap:22px}
 .stat .s{flex:1 1 8rem}
-.stat .big{font-family:"Fraunces",serif;font-weight:600;font-size:2.6rem;line-height:1;color:var(--navy);letter-spacing:-.02em}
+.stat .big{font-family:var(--tt-font);font-weight:600;font-size:2.6rem;line-height:1;color:var(--navy);letter-spacing:-.02em}
 .stat .cap{color:var(--ink-2);font-size:.9rem;margin-top:6px}
 
 hr.soft{border:0;border-top:1px solid var(--line);max-width:var(--maxw);margin:30px 0}

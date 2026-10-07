@@ -5,32 +5,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Trung Truong — Interview Deck</title>
-  <link rel="icon" type="image/svg+xml" href="./images/favicon.svg" />
+  <link rel="icon" href="./brand/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="./brand/favicon.ico" sizes="48x48" />
+  <link rel="apple-touch-icon" href="./brand/apple-touch-icon.png" />
+  <meta property="og:image" content="https://trungtruong32.github.io/Trquoc_trung_portfolio/brand/og-1200x630.png" />
+  <link rel="stylesheet" href="./brand/tokens.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
     rel="stylesheet">
   <style>
     /* ============================================================
        THEME — Glassmorphism + gradient (tech / interview deck)
        ============================================================ */
     :root {
-      --bg-0: #05060d;
-      --bg-1: #0b1026;
-      --ink: #e9edff;
-      --muted: #a6afd4;
-      --muted-2: #8b96c2;
-      --gold: #ffd54a;
-      --gold-2: #ffb020;
-      --cyan: #38e1ff;
-      --indigo: #6d7bff;
-      --violet: #b58bff;
+      --bg-0: var(--tt-dark);
+      --bg-1: var(--tt-navy);
+      --ink: var(--tt-light);
+      --muted: var(--tt-muted);
+      --muted-2: var(--tt-gray);
+      --gold: var(--tt-primary);
+      --gold-2: var(--tt-secondary);
+      --cyan: var(--tt-secondary);
+      --indigo: var(--tt-aubergine);
+      --violet: #7A4A5A;
       --line: rgba(255, 255, 255, 0.12);
       --glass: rgba(255, 255, 255, 0.055);
       --glass-2: rgba(255, 255, 255, 0.09);
-      --glow: 0 20px 60px rgba(0, 0, 0, 0.45);
-      --font: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      --glow: 0 20px 60px rgba(20,11,25,0.45);
+      --font: var(--tt-font);
       --mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
     }
 
@@ -69,8 +73,8 @@
       inset: 0;
       z-index: 0;
       background:
-        radial-gradient(1200px 800px at 15% 10%, #131a3f 0%, transparent 55%),
-        radial-gradient(1000px 700px at 85% 90%, #1a1140 0%, transparent 55%),
+        radial-gradient(1200px 800px at 15% 10%, var(--tt-aubergine) 0%, transparent 55%),
+        radial-gradient(1000px 700px at 85% 90%, var(--tt-aubergine) 0%, transparent 55%),
         linear-gradient(160deg, var(--bg-1) 0%, var(--bg-0) 70%);
       overflow: hidden;
     }
@@ -235,21 +239,21 @@
 
     h1.title {
       font-size: clamp(2.1rem, 5.2vw, 4.4rem);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.02;
       letter-spacing: -.01em;
     }
 
     h2.s-title {
       font-size: clamp(1.6rem, 3.4vw, 2.9rem);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1.08;
       margin-bottom: 6px;
     }
 
     .s-title .hl,
     .grad {
-      background: linear-gradient(120deg, var(--gold), var(--gold-2) 55%, #ff8a3d);
+      background: linear-gradient(120deg, var(--gold), var(--gold-2) 55%, #A8811F);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -257,7 +261,7 @@
 
     .sub {
       color: var(--muted);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(.9rem, 1.35vw, 1.05rem);
       margin-top: 8px;
       max-width: 64ch;
@@ -297,16 +301,16 @@
       padding: 8px 13px;
       border-radius: 10px;
       color: var(--cyan);
-      background: rgba(56, 225, 255, .07);
-      border: 1px solid rgba(56, 225, 255, .22);
+      background: rgba(230,199,106,.07);
+      border: 1px solid rgba(230,199,106,.22);
       transition: .2s;
       white-space: nowrap;
     }
 
     a.link:hover {
-      background: rgba(56, 225, 255, .16);
+      background: rgba(230,199,106,.16);
       transform: translateY(-2px);
-      color: #bff4ff;
+      color: var(--tt-accent);
     }
 
     a.link svg {
@@ -333,11 +337,11 @@
       font-family: var(--mono);
       font-size: .78rem;
       letter-spacing: .12em;
-      color: #7bffc4;
+      color: var(--tt-accent);
       padding: 7px 15px;
       border-radius: 999px;
-      border: 1px solid rgba(123, 255, 196, .35);
-      background: rgba(123, 255, 196, .07);
+      border: 1px solid rgba(241,215,122,.35);
+      background: rgba(241,215,122,.07);
       margin-bottom: 22px;
     }
 
@@ -345,18 +349,18 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #4dffa3;
-      box-shadow: 0 0 0 0 rgba(77, 255, 163, .6);
+      background: var(--tt-accent);
+      box-shadow: 0 0 0 0 rgba(241,215,122,.6);
       animation: pulse 2s infinite;
     }
 
     @keyframes pulse {
       70% {
-        box-shadow: 0 0 0 9px rgba(77, 255, 163, 0);
+        box-shadow: 0 0 0 9px rgba(241,215,122,0);
       }
 
       100% {
-        box-shadow: 0 0 0 0 rgba(77, 255, 163, 0);
+        box-shadow: 0 0 0 0 rgba(241,215,122,0);
       }
     }
 
@@ -373,7 +377,7 @@
 
     .cover .pitch {
       color: var(--muted);
-      font-weight: 300;
+      font-weight: 400;
       margin-top: 20px;
       max-width: 54ch;
       line-height: 1.6;
@@ -457,7 +461,7 @@
       height: 40px;
       border-radius: 11px;
       flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(109, 123, 255, .25), rgba(56, 225, 255, .18));
+      background: linear-gradient(135deg, rgba(61,26,79,.25), rgba(230,199,106,.18));
       border: 1px solid var(--line);
     }
 
@@ -496,7 +500,7 @@
       margin-bottom: 9px;
       line-height: 1.5;
       font-size: clamp(.82rem, 1.05vw, .98rem);
-      color: #d7dcf5;
+      color: var(--tt-light);
     }
 
     ul.list li::before {
@@ -520,8 +524,8 @@
       padding: 5px 11px;
       border-radius: 8px;
       color: var(--gold);
-      background: rgba(255, 213, 74, .07);
-      border: 1px solid rgba(255, 213, 74, .18);
+      background: rgba(212,175,55,.07);
+      border: 1px solid rgba(212,175,55,.18);
       white-space: nowrap;
     }
 
@@ -534,7 +538,7 @@
 
     .metric .n {
       font-size: clamp(1.8rem, 3.6vw, 3rem);
-      font-weight: 700;
+      font-weight: 600;
       line-height: 1;
       font-family: var(--mono);
     }
@@ -661,7 +665,7 @@
 
     .tl-item .ds {
       font-size: .84rem;
-      color: #d0d6f2;
+      color: var(--tt-light);
       line-height: 1.5;
     }
 
@@ -671,7 +675,7 @@
       right: 18px;
       font-family: var(--mono);
       font-size: 2.4rem;
-      font-weight: 700;
+      font-weight: 600;
       color: rgba(255, 255, 255, .06);
     }
 
@@ -684,7 +688,7 @@
 
     .proj-card .thumb {
       height: 148px;
-      background: #0b0f22;
+      background: var(--tt-navy);
       overflow: hidden;
     }
 
@@ -748,7 +752,7 @@
     .big-fact .bf .n {
       font-family: var(--mono);
       font-size: clamp(1.3rem, 2.4vw, 2rem);
-      font-weight: 700;
+      font-weight: 600;
       color: var(--gold);
     }
 
@@ -830,7 +834,7 @@
       height: clamp(150px, 26vh, 250px);
       background:
         repeating-linear-gradient(45deg, rgba(255, 255, 255, .015) 0 10px, transparent 10px 20px),
-        #0a0e20;
+        var(--tt-navy);
       display: grid;
       place-items: center;
       padding: 10px;
@@ -877,7 +881,7 @@
     a.contact-item:hover {
       background: var(--glass-2);
       transform: translateY(-2px);
-      border-color: rgba(255, 213, 74, .35);
+      border-color: rgba(212,175,55,.35);
     }
 
     .contact-item .ico {
@@ -886,8 +890,8 @@
       border-radius: 12px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, rgba(255, 213, 74, .22), rgba(255, 176, 32, .12));
-      border: 1px solid rgba(255, 213, 74, .25);
+      background: linear-gradient(135deg, rgba(212,175,55,.22), rgba(212,175,55,.12));
+      border: 1px solid rgba(212,175,55,.25);
       flex-shrink: 0;
     }
 
@@ -915,7 +919,7 @@
     .thanks {
       margin-top: 28px;
       font-size: clamp(1.4rem, 3vw, 2.4rem);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     /* ============================================================
@@ -930,7 +934,7 @@
       background: linear-gradient(90deg, var(--gold), var(--cyan));
       width: 0;
       transition: width .45s cubic-bezier(.2, .7, .2, 1);
-      box-shadow: 0 0 14px rgba(56, 225, 255, .5);
+      box-shadow: 0 0 14px rgba(230,199,106,.5);
     }
 
     .topbar {
@@ -994,6 +998,13 @@
       color: var(--muted);
     }
 
+    .brand-tag .brand-mark {
+      height: 18px;
+      width: auto;
+      vertical-align: -4px;
+      margin-right: 7px;
+    }
+
     .brand-tag b {
       color: var(--ink);
       font-weight: 600;
@@ -1045,8 +1056,8 @@
 
     .deck-nav button.on {
       color: var(--gold);
-      background: rgba(255, 213, 74, .1);
-      border-color: rgba(255, 213, 74, .28);
+      background: rgba(212,175,55,.1);
+      border-color: rgba(212,175,55,.28);
     }
 
     .deck-nav button:focus-visible {
@@ -1095,7 +1106,7 @@
     }
 
     .lang-switch button.on {
-      color: #05060d;
+      color: var(--tt-dark);
       background: linear-gradient(120deg, var(--gold), var(--gold-2));
     }
 
@@ -1177,7 +1188,7 @@
       position: fixed;
       inset: 0;
       z-index: 90;
-      background: rgba(5, 6, 13, .92);
+      background: rgba(20,11,25,.92);
       backdrop-filter: blur(6px);
       display: none;
       padding: clamp(30px, 6vh, 70px);
@@ -1215,12 +1226,12 @@
 
     .ov-card:hover {
       background: var(--glass-2);
-      border-color: rgba(255, 213, 74, .4);
+      border-color: rgba(212,175,55,.4);
       transform: translateY(-3px);
     }
 
     .ov-card.cur {
-      border-color: rgba(255, 213, 74, .55);
+      border-color: rgba(212,175,55,.55);
     }
 
     .ov-card .idx {
@@ -1313,7 +1324,7 @@
           <path d="M15 18l-6-6 6-6" />
         </svg><span data-lng="en">Portfolio</span><span data-lng="vi">Trang chính</span>
       </a>
-      <button type="button" class="brand-tag" id="brandBtn" title="Cover" aria-label="Go to cover"><b>Trung<span
+      <button type="button" class="brand-tag" id="brandBtn" title="Cover" aria-label="Go to cover"><img class="brand-mark" src="./brand/mark-on-dark.svg" alt="" /><b>Trung<span
             class="sq">Truong</span></b> · Interview Deck</button>
     </div>
     <nav class="deck-nav" id="deckNav" aria-label="Sections"></nav>

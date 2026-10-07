@@ -6,54 +6,61 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="description" content="Blog của Trung Truong — ghi chép về AI, mẹo làm việc và những điều đáng chia sẻ." />
 <title>Blog — Trung Truong</title>
-<link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+<link rel="icon" href="../brand/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="../brand/favicon.ico" sizes="48x48" />
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png" />
+<meta property="og:image" content="https://trungtruong32.github.io/Trquoc_trung_portfolio/brand/og-1200x630.png" />
+<link rel="stylesheet" href="../brand/tokens.css" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Be+Vietnam+Pro:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&display=swap">
 
 <style>
   /* ===== design tokens — kế thừa từ ai-theory-a1.html (editorial world) ===== */
   :root{
-    --paper:#eef1f8; --surface:#ffffff; --surface-2:#f6f8fc;
-    --ink:#151f38; --ink-2:#4b566f; --ink-3:#8590a6;
-    --line:#dde3ef; --line-2:#eaeef6;
-    --navy:#224099; --navy-2:#2f5597; --navy-deep:#16264f;
-    --teal:#0b8f9e; --teal-bright:#0ea5b5;
-    --rust:#b4531f; --rust-soft:#fbeee6;
-    --gold:#a9761a;
-    --sel:#cfe0ff;
+    --paper:var(--tt-light); --surface:var(--tt-white); --surface-2:color-mix(in srgb,var(--tt-light) 45%,var(--tt-white));
+  --ink:var(--tt-dark); --ink-2:var(--tt-ink-gray); --ink-3:color-mix(in srgb,var(--tt-ink-gray) 85%,var(--tt-light));
+  --line:color-mix(in srgb,var(--tt-dark) 13%,var(--tt-white)); --line-2:color-mix(in srgb,var(--tt-dark) 7%,var(--tt-white));
+  --navy:var(--tt-aubergine); --navy-2:#7A4A5A; --navy-deep:#2A0F38;
+  --teal:var(--tt-gold-deep); --teal-bright:var(--tt-primary);
+  --rust:#7A4A5A; --rust-soft:color-mix(in srgb,#7A4A5A 9%,var(--tt-white));
+  --gold:var(--tt-gold-deep);
+  --sel:var(--tt-accent);
+  --on-navy:var(--tt-white);
     --r:14px; --r-sm:9px;
-    --shadow:0 1px 2px rgba(20,30,60,.05), 0 8px 30px rgba(20,30,60,.06);
-    --shadow-lift:0 2px 6px rgba(20,30,60,.06), 0 18px 44px rgba(20,30,60,.10);
+    --shadow:0 1px 2px rgba(20,11,25,.05), 0 8px 30px rgba(20,11,25,.06);
+    --shadow-lift:0 2px 6px rgba(20,11,25,.06), 0 18px 44px rgba(20,11,25,.10);
     --maxw:74rem;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#0a1120; --surface:#101a30; --surface-2:#0e1728;
-      --ink:#e9edf6; --ink-2:#a6b1c8; --ink-3:#6a7690;
-      --line:#233150; --line-2:#1a263f;
-      --navy:#7a9bef; --navy-2:#6d8fe6; --navy-deep:#c3d3ff;
-      --teal:#2bc7d6; --teal-bright:#3ad3e2;
-      --rust:#f0865a; --rust-soft:#2a1a12;
-      --gold:#d8a94a;
-      --sel:#22345c;
-      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.34);
-      --shadow-lift:0 2px 6px rgba(0,0,0,.34), 0 20px 50px rgba(0,0,0,.42);
+      --paper:var(--tt-dark); --surface:var(--tt-navy); --surface-2:color-mix(in srgb,var(--tt-navy) 55%,var(--tt-dark));
+  --ink:var(--tt-light); --ink-2:var(--tt-muted); --ink-3:var(--tt-gray);
+  --line:color-mix(in srgb,var(--tt-light) 14%,var(--tt-navy)); --line-2:color-mix(in srgb,var(--tt-light) 8%,var(--tt-navy));
+  --navy:var(--tt-secondary); --navy-2:var(--tt-primary); --navy-deep:var(--tt-accent);
+  --teal:var(--tt-primary); --teal-bright:var(--tt-secondary);
+  --rust:var(--tt-accent); --rust-soft:color-mix(in srgb,var(--tt-aubergine) 55%,var(--tt-dark));
+  --gold:var(--tt-primary);
+  --sel:var(--tt-aubergine);
+  --on-navy:var(--tt-dark);
+      --shadow:0 1px 2px rgba(20,11,25,.3), 0 10px 34px rgba(20,11,25,.34);
+      --shadow-lift:0 2px 6px rgba(20,11,25,.34), 0 20px 50px rgba(20,11,25,.42);
     }
   }
   :root[data-theme="dark"]{
-    --paper:#0a1120; --surface:#101a30; --surface-2:#0e1728;
-    --ink:#e9edf6; --ink-2:#a6b1c8; --ink-3:#6a7690;
-    --line:#233150; --line-2:#1a263f;
-    --navy:#7a9bef; --navy-2:#6d8fe6; --navy-deep:#c3d3ff;
-    --teal:#2bc7d6; --teal-bright:#3ad3e2;
-    --rust:#f0865a; --rust-soft:#2a1a12;
-    --gold:#d8a94a;
-    --sel:#22345c;
-    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 34px rgba(0,0,0,.34);
-    --shadow-lift:0 2px 6px rgba(0,0,0,.34), 0 20px 50px rgba(0,0,0,.42);
+    --paper:var(--tt-dark); --surface:var(--tt-navy); --surface-2:color-mix(in srgb,var(--tt-navy) 55%,var(--tt-dark));
+  --ink:var(--tt-light); --ink-2:var(--tt-muted); --ink-3:var(--tt-gray);
+  --line:color-mix(in srgb,var(--tt-light) 14%,var(--tt-navy)); --line-2:color-mix(in srgb,var(--tt-light) 8%,var(--tt-navy));
+  --navy:var(--tt-secondary); --navy-2:var(--tt-primary); --navy-deep:var(--tt-accent);
+  --teal:var(--tt-primary); --teal-bright:var(--tt-secondary);
+  --rust:var(--tt-accent); --rust-soft:color-mix(in srgb,var(--tt-aubergine) 55%,var(--tt-dark));
+  --gold:var(--tt-primary);
+  --sel:var(--tt-aubergine);
+  --on-navy:var(--tt-dark);
+    --shadow:0 1px 2px rgba(20,11,25,.3), 0 10px 34px rgba(20,11,25,.34);
+    --shadow-lift:0 2px 6px rgba(20,11,25,.34), 0 20px 50px rgba(20,11,25,.42);
   }
 
   *{box-sizing:border-box}
@@ -61,15 +68,15 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   body{
     margin:0; background:var(--paper); color:var(--ink);
-    font-family:"Be Vietnam Pro",system-ui,-apple-system,sans-serif;
+    font-family:var(--tt-font);
     font-size:17px; line-height:1.68; -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility; min-height:100vh;
   }
   ::selection{background:var(--sel)}
   .mono{font-family:"JetBrains Mono",ui-monospace,monospace}
   a{color:var(--teal);text-underline-offset:3px;text-decoration-thickness:1px}
-  a:hover{color:var(--teal-bright)}
-  :focus-visible{outline:2px solid var(--teal-bright);outline-offset:3px;border-radius:6px}
+  a:hover{color:var(--navy-2)}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
   img{max-width:100%}
 
   /* ===== bilingual mechanism (như presentation.html) ===== */
@@ -83,11 +90,19 @@
     background:color-mix(in srgb,var(--paper) 82%,transparent);border-bottom:1px solid var(--line)}
   .topbar-in{max-width:var(--maxw);margin:0 auto;padding:12px clamp(18px,4vw,40px);
     display:flex;align-items:center;gap:16px}
-  .brand{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
+  .brand{font-family:var(--tt-font);font-weight:600;font-size:1.15rem;letter-spacing:-.01em;
     color:var(--ink);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:9px}
   .brand:hover{color:var(--ink)}
+  .brand img{height:38px;width:auto;display:block}
+  .brand .logo-on-dark{display:none}
+  :root[data-theme="dark"] .brand .logo-on-light{display:none}
+  :root[data-theme="dark"] .brand .logo-on-dark{display:block}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .brand .logo-on-light{display:none}
+    :root:not([data-theme="light"]) .brand .logo-on-dark{display:block}
+  }
   .brand .tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-    color:#fff;background:var(--navy);padding:3px 8px;border-radius:6px;font-weight:600}
+    color:var(--on-navy);background:var(--navy);padding:3px 8px;border-radius:6px;font-weight:600}
   .top-nav{margin-left:auto;display:flex;align-items:center;gap:6px}
   .top-nav a.tlink{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink-2);
     text-decoration:none;padding:8px 12px;border-radius:8px;transition:color .15s,background .15s;white-space:nowrap}
@@ -100,7 +115,7 @@
   .lang button{border:0;background:transparent;color:var(--ink-3);cursor:pointer;padding:6px 11px;
     font:inherit;letter-spacing:.06em;transition:color .15s}
   .lang button:hover{color:var(--ink-2)}
-  body.lang-vi .lang .b-vi,body.lang-en .lang .b-en{background:var(--navy);color:#fff}
+  body.lang-vi .lang .b-vi,body.lang-en .lang .b-en{background:var(--navy);color:var(--on-navy)}
 
   /* theme toggle (như article) */
   .toggle{width:38px;height:38px;border-radius:50%;flex:none;
@@ -127,7 +142,7 @@
   .kicker{font-family:"JetBrains Mono",monospace;font-size:12.5px;letter-spacing:.24em;
     text-transform:uppercase;color:var(--teal);font-weight:600;margin:0 0 20px}
   .kicker b{color:var(--navy)}
-  h1.title{font-family:"Fraunces",Georgia,serif;font-weight:600;
+  h1.title{font-family:var(--tt-font);font-weight:600;
     font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:1.03;letter-spacing:-.015em;
     margin:0;color:var(--ink);text-wrap:balance}
   h1.title em{font-style:italic;color:var(--navy)}
@@ -143,7 +158,7 @@
     border:1px solid var(--line);background:var(--surface);color:var(--ink-2);
     padding:7px 14px;border-radius:999px;transition:all .15s;white-space:nowrap}
   .chip-btn:hover{color:var(--ink);border-color:var(--teal-bright)}
-  .chip-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip-btn.active{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
   .chip-btn .ct{font-size:10.5px;opacity:.7;margin-left:6px}
 
   /* ===== posts grid ===== */
@@ -160,7 +175,7 @@
   .post .tg{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;
     color:var(--teal);background:color-mix(in srgb,var(--teal-bright) 12%,transparent);
     border:1px solid color-mix(in srgb,var(--teal-bright) 30%,transparent);padding:3px 9px;border-radius:6px;font-weight:600}
-  .post h2{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.4rem;line-height:1.18;
+  .post h2{font-family:var(--tt-font);font-weight:600;font-size:1.4rem;line-height:1.18;
     letter-spacing:-.01em;margin:0 0 10px;color:var(--ink);text-wrap:balance;transition:color .15s}
   .post:hover h2{color:var(--navy)}
   .post .excerpt{margin:0 0 18px;color:var(--ink-2);font-size:.98rem;line-height:1.55}
@@ -210,7 +225,7 @@
 <!-- ============ TOP BAR ============ -->
 <header class="topbar">
   <div class="topbar-in">
-    <a class="brand" href="../index.html">Trung<span style="color:var(--teal)">Truong</span> <span class="tag">Blog</span></a>
+    <a class="brand" href="../index.html" aria-label="Trung Trương — portfolio"><img class="logo-on-light" src="../brand/horizontal-on-light.svg" alt="Trung Trương" width="167" height="38" /><img class="logo-on-dark" src="../brand/horizontal-on-dark.svg" alt="Trung Trương" width="167" height="38" /> <span class="tag">Blog</span></a>
 
     <nav class="top-nav" aria-label="Chính">
       <a class="tlink" href="../index.html">Portfolio</a>
